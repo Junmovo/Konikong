@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import StyledComponentsRegistry from '@/lib/registry';
+import styles from './page.module.css';
+import Header from '@/components/Layout/Header';
 
 const pretendard = localFont({
   src: '../../public/fonts/PretendardVariable.woff2',
@@ -21,7 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr" className={`${pretendard.variable}`}>
-      <body className={pretendard.className}>{children}</body>
+      <StyledComponentsRegistry>
+        <body className={pretendard.className} style={{ overflowX: 'hidden' }}>
+          <Header />
+          <div className={styles.wrapper}>{children}</div>
+        </body>
+      </StyledComponentsRegistry>
     </html>
   );
 }
