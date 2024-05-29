@@ -3,7 +3,7 @@ import React from 'react';
 import Navigator from '@/components/Layout/elements/Navigator';
 import Logo from '@/components/Layout/elements/Logo';
 import { Metadata } from 'next';
-import YHeader from '@/components/Layout/elements/YHeader';
+import Header from '@/components/Layout/elements/Youtube_Header';
 
 export const metadata: Metadata = {
   title: 'YTMUSIC',
@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </nav>
       <div className="flex-1">
-        <YHeader>{children}</YHeader>
+        <Header>{children}</Header>
       </div>
     </div>
   );
