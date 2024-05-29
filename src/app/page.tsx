@@ -1,11 +1,14 @@
+'use client';
 import Image from 'next/image';
 import styles from './page.module.css';
-import MainPage from '@/app/(main)/page';
+import Maincontents from '@/components/Layout/mainElements/MainContents';
+import List from '@/components/Layout/mainElements/list';
 
 export default function Home() {
   return (
     <>
-      <MainPage />
+      <Maincontents />
+      <List />
     </>
   );
 }
