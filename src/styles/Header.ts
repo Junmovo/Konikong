@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.header`
   justify-content: center;
   background-color: #ddd;
   height: 80px;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   z-index: 9;
   margin: 0px auto;

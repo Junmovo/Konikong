@@ -24,7 +24,7 @@ export default function List(): JSX.Element {
             onSwiper={(swiper) => console.log(swiper)}
           >
             <SwiperSlide>
-              <S.List href="/TodoList">
+              <S.List href="PageDetail/MusicApp">
                 <S.ListTag>React</S.ListTag>
                 <S.ListImgWrap>
                   <Image src={Listimg} alt="임시" />
