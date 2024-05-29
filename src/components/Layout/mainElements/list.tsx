@@ -4,7 +4,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Image from 'next/image';
-import Listimg from '../../../public/Img1.jpg';
+// import Listimg from '@/';
 
 export default function List(): JSX.Element {
   return (
@@ -25,9 +25,7 @@ export default function List(): JSX.Element {
             <SwiperSlide>
               <S.List href="PageDetail/MusicApp">
                 <S.ListTag>React</S.ListTag>
-                <S.ListImgWrap>
-                  <Image src={Listimg} alt="임시" />
-                </S.ListImgWrap>
+                <S.ListImgWrap>{/* <Image src={Listimg} alt="임시" /> */}</S.ListImgWrap>
                 <S.ListContentsWrap>
                   <S.ListTitle>제목입니다.</S.ListTitle>
                   <S.ListContents>내용입니다.</S.ListContents>
