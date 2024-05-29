@@ -1,4 +1,3 @@
-'use client';
 import Link from 'next/link';
 import * as S from '@/styles/ListStyles';
 import { Navigation, Pagination } from 'swiper/modules';

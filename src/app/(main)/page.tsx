@@ -1,6 +1,6 @@
 'use client';
-import Maincontents from '@/app/(main)/MainContents';
-import List from '@/app/(List)/list';
+import Maincontents from '@/components/Layout/mainElements/MainContents';
+import List from '@/components/Layout/mainElements/list';
 export default function MainPage() {
   return (
     <>
