@@ -63,7 +63,7 @@ export default function Navigator() {
       <section className="my-3">
         <ul>
           {dummyPlaylistArray.map((playlist) => {
-            return <PlayList playlist={playlist} />;
+            return <PlayList key={playlist.id} playlist={playlist} />;
           })}
         </ul>
       </section>
