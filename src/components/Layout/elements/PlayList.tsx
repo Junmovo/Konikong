@@ -5,7 +5,13 @@ interface IPlaylist {
   id: number;
   owner: string;
   playlistName: string;
-  songList: () => void;
+  songList: {
+    name: string;
+    channelId: number;
+    channel: string;
+    src: string;
+    imageSrc: string;
+  }[];
 }
 
 interface IPropsPlaylist {

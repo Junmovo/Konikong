@@ -1,9 +1,8 @@
-import SideBar from '@/components/Layout/SideBar';
 import React from 'react';
-import Navigator from '@/components/Layout/elements/Navigator';
-import Logo from '@/components/Layout/elements/Logo';
+
 import { Metadata } from 'next';
 import Header from '@/components/Layout/elements/Youtube_Header';
+import SideBar from '@/components/Layout/SideBar';
 
 export const metadata: Metadata = {
   title: 'YTMUSIC',
@@ -15,15 +14,8 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-row h-full">
-      <nav className="w-[240px] border-r-[1px] p-[20px]">
-        <div className="p-[8px]">
-          <Logo />
-        </div>
-        <div>
-          <Navigator />
-        </div>
-      </nav>
+    <div className="flex flex-row h-full ">
+      <SideBar />
       <div className="flex-1">
         <Header>{children}</Header>
       </div>

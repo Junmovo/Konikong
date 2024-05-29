@@ -1,11 +1,16 @@
 import React from 'react';
-
-const SideBar = ({ children }: { children: React.ReactNode }) => {
+import Navigator from '@/components/Layout/elements/Navigator';
+import Logo from '@/components/Layout/elements/Logo';
+const SideBar = () => {
   return (
-    <div>
-      <nav>왼쪽 네비게이션입니다</nav>
-      <div>{children}</div>
-    </div>
+    <nav className="w-[240px] border-r-[1px] p-[20px] hidden lg:block">
+      <div className="p-[8px]">
+        <Logo />
+      </div>
+      <div>
+        <Navigator />
+      </div>
+    </nav>
   );
 };
 
