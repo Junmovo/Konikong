@@ -6,8 +6,8 @@ import { IoMdClose } from 'react-icons/io';
 import { useState } from 'react';
 
 interface ILogoProps {
-  Open: boolean;
-  onClickClose: () => void;
+  Open?: boolean;
+  onClickClose?: () => void;
 }
 
 export default function Logo({ Open, onClickClose }: ILogoProps) {
