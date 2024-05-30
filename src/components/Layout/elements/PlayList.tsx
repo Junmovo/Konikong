@@ -1,22 +1,7 @@
 'use client';
 import { FaCirclePlay } from 'react-icons/fa6';
+import { IPropsPlaylist } from '@/types/Music';
 
-interface IPlaylist {
-  id: number;
-  owner: string;
-  playlistName: string;
-  songList: {
-    name: string;
-    channelId: number;
-    channel: string;
-    src: string;
-    imageSrc: string;
-  }[];
-}
-
-interface IPropsPlaylist {
-  playlist: IPlaylist;
-}
 export default function PlayList({ playlist }: IPropsPlaylist) {
   const { id, owner, playlistName, songList } = playlist;
 

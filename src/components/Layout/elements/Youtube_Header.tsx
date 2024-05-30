@@ -40,7 +40,6 @@ const YHeader = ({ children }: { children: React.ReactNode }) => {
 
   const onDebounced = _.debounce((v: number | undefined) => {
     setIsScrolled(v !== 0);
-    console.log('Debounce');
   }, 100);
 
   useEffect(() => {
@@ -98,14 +97,12 @@ const YHeader = ({ children }: { children: React.ReactNode }) => {
             </article>
             <article className="flex gap-6 items-center">
               <FaChromecast size={24} className="cursor-pointer" />
-              <UserIcon />
+              <UserIcon size={'sm'} />
             </article>
           </div>
         </PagePadding>
       </section>
-      <section className=" relative">
-        <PagePadding>{children}</PagePadding>
-      </section>
+      <section className=" relative">{children}</section>
     </header>
   );
 };

@@ -3,12 +3,7 @@ import IconButton from './IconButton';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import LogoImg from './LogoImg';
 import { IoMdClose } from 'react-icons/io';
-import { useState } from 'react';
-
-interface ILogoProps {
-  Open?: boolean;
-  onClickClose?: () => void;
-}
+import { ILogoProps } from '@/types/Music';
 
 export default function Logo({ Open, onClickClose }: ILogoProps) {
   return (

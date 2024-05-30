@@ -5,11 +5,7 @@ import useUIState from '@/hooks/useUIState';
 import { homeCategoryList } from '@/lib/dummyData';
 import { v4 as uuidv4 } from 'uuid';
 import { cn } from '@/lib/utils';
-
-interface IitemsType {
-  label: string;
-  src: string;
-}
+import { IitemsType } from '@/types/Music';
 
 const Category = () => {
   const { homecategory, setHeaderImageSrc, setHomeCategory } = useUIState();
@@ -26,13 +22,13 @@ const Category = () => {
     }
   };
   return (
-    <ul className="max-w-full overflow-x-auto flex gap-4 flex-wrap">
+    <ul className="max-w-full overflow-x-auto flex gap-4 flex-row">
       {homeCategoryList.map((items) => {
         return (
           <li
             onClick={onClickCategory(items)}
             className={cn(
-              'px-[15px] py-[7px] object-w-fit flex justify-center bg-[rgba(144,144,144,0.2)] rounded-[4px] cursor-pointer items-center hover:bg-[rgba(144,144,144,0.45)]',
+              'px-[15px] py-[7px] min-w-fit flex justify-center bg-[rgba(144,144,144,0.2)] rounded-[4px] cursor-pointer items-center hover:bg-[rgba(144,144,144,0.45)]',
               homecategory === items.label && 'bg-white text-black hover:bg-white'
             )}
             key={uuidv4()}

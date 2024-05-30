@@ -1,7 +1,4 @@
-interface IconButtonProps {
-  icon: React.ReactNode;
-  onClickIcon?: () => void;
-}
+import { IconButtonProps } from '@/types/Music';
 
 export default function IconButton({ icon, onClickIcon = () => {} }: IconButtonProps) {
   return (
