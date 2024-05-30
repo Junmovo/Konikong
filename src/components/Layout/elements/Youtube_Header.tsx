@@ -12,6 +12,8 @@ import IconButton from './IconButton';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import LogoImg from './LogoImg';
 import { cn } from '@/lib/utils';
+import useUIState from '@/hooks/useUIState';
+import _ from 'lodash';
 
 const HeaderDrawer = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,15 +34,20 @@ const HeaderDrawer = ({ children }: { children: React.ReactNode }) => {
 };
 
 const YHeader = ({ children }: { children: React.ReactNode }) => {
+  const { headerImageSrc } = useUIState();
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const headRef = useRef<HTMLHeadElement>(null);
 
-  const headRef = useRef(null);
+  const onDebounced = _.debounce((v: number | undefined) => {
+    setIsScrolled(v !== 0);
+    console.log('Debounce');
+  }, 100);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollValue = headRef?.current?.scrollTop;
-      setIsScrolled(scrollValue !== 0);
-      console.log(headRef);
+      // console.log(typeof scrollValue);
+      onDebounced(scrollValue);
     };
     headRef?.current?.addEventListener('scroll', handleScroll);
     return () => {
@@ -55,7 +62,8 @@ const YHeader = ({ children }: { children: React.ReactNode }) => {
           <Image
             className="object-cover"
             fill
-            src="https://cdn.pixabay.com/photo/2020/08/22/17/51/boat-5509027_1280.jpg"
+            // falsy값을 대비하기 위한 ||(or) 연산자 값이 빠졌을때 falsy가 된다.
+            src={headerImageSrc || 'https://cdn.pixabay.com/photo/2020/08/22/17/51/boat-5509027_1280.jpg'}
             alt="사진"
           />
         </div>
@@ -65,13 +73,18 @@ const YHeader = ({ children }: { children: React.ReactNode }) => {
       <section className={cn('sticky top-0 z-10  transition', isScrolled ? 'bg-black' : '')}>
         <PagePadding>
           <div className="flex  items-center justify-between">
-            <article className="hidden lg:flex  gap-4 min-w-[400px] h-[40px] items-center bg-[rgba(0,0,0,0.14)] rounded-[10px] px-[16px]">
+            <article
+              className={cn(
+                'hidden lg:flex  gap-4 min-w-[400px] h-[40px] items-center bg-[rgba(0,0,0,0.14)] rounded-[10px] px-[16px] transition border border-transparent ',
+                isScrolled ? ' border-neutral-600' : ''
+              )}
+            >
               <div>
                 <FiSearch size={24} />
               </div>
               <input
                 type="text"
-                className="w-full h-full bg-transparent px-2"
+                className=" w-full h-full bg-transparent px-2"
                 placeholder="노래, 아티스트, 앨범을 검색해주세요."
               />
             </article>
