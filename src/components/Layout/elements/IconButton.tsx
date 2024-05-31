@@ -4,7 +4,7 @@ export default function IconButton({ icon, onClickIcon = () => {} }: IconButtonP
   return (
     <div
       onClick={onClickIcon}
-      className="w-[36px] h-[36px] cursor-pointer hover:bg-[rgba(144,144,144,144)] flex justify-center items-center rounded-full"
+      className="w-[36px] h-[36px] cursor-pointer hover:bg-[rgba(144,144,144,0.4)] flex justify-center items-center rounded-full "
     >
       {icon}
     </div>

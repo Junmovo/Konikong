@@ -102,7 +102,7 @@ const YHeader = ({ children }: { children: React.ReactNode }) => {
           </div>
         </PagePadding>
       </section>
-      <section className=" relative">{children}</section>
+      <section className="relative">{children}</section>
     </header>
   );
 };

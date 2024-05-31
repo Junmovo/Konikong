@@ -41,3 +41,8 @@ export interface Channel {
   songList: Song[];
   playlistArray: Song[];
 }
+
+export interface ICategoryMenuProps {
+  icon: React.ReactNode;
+  label: string;
+}

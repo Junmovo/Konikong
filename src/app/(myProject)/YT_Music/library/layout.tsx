@@ -3,6 +3,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import Header from '@/components/Layout/elements/Youtube_Header';
 import SideBar from '@/components/Layout/SideBar';
+import { ThemeProvider } from '../../../../../provider/ThemeProvider';
 
 // export const metadata: Metadata = {
 //   title: 'YTMUSIC',

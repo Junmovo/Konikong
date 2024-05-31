@@ -4,7 +4,6 @@ import './globals.css';
 import StyledComponentsRegistry from '@/lib/registry';
 import styles from './page.module.css';
 import Header from '@/components/Layout/Header';
-import { ThemeProvider } from '../../provider/ThemeProvider';
 
 const pretendard = localFont({
   src: '../../public/fonts/PretendardVariable.woff2',
@@ -27,10 +26,8 @@ export default function RootLayout({
     <html lang="kr" className={`${pretendard.variable}`}>
       <StyledComponentsRegistry>
         <body className={pretendard.className} style={{ overflowX: 'hidden' }}>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-            <Header />
-            <div className={styles.wrapper}>{children}</div>
-          </ThemeProvider>
+          <Header />
+          <div className={styles.wrapper}>{children}</div>
         </body>
       </StyledComponentsRegistry>
     </html>
