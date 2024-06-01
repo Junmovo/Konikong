@@ -250,7 +250,7 @@ export const homeCategoryList = [
 ];
 
 // 분위기 및 장르
-// Array.from(document.querySelectorAll("#items")[7].querySelectorAll("button")).map( el => el.textContent.replaceAll("\n","").trim())
+// Array.from(document.querySelectorAll("#items")[5].querySelectorAll("button")).map((el)=>el.textContent.replaceAll("\n","").trim())
 export const dymmyGenreList = [
   '잠잘 때',
   '인디 & 얼터너티브',

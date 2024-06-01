@@ -4,26 +4,27 @@ import { TopSong } from '@/types/Music';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import cunkArray from '@/lib/utils';
 import SongCard from '@/app/(myProject)/YT_Music/explore/components/SongCard';
+import GenericCard from '@/app/(myProject)/YT_Music/explore/components/GenerCard';
 
-interface ISongListCarouselProps {
+interface IGenreListCarouselProps {
   title: string;
   subTitle?: string;
   Thumbnail?: React.ReactNode;
-  songListTop10: TopSong[];
+  GeneList: string[];
 }
 
-const SongColumn = ({ songList = [] }: { songList: TopSong[] }) => {
+const GenericColum = ({ GeneList = [] }: { GeneList: string[] }) => {
   return (
     <div className="flex flex-col gap-4">
-      {songList.map((song, idx) => {
-        return <SongCard key={idx} song={song} />;
+      {GeneList.map((el) => {
+        return <GenericCard key={el} generic={el} />;
       })}
     </div>
   );
 };
 
-const SongListCarousel: React.FC<ISongListCarouselProps> = ({ title, subTitle, Thumbnail, songListTop10 }) => {
-  const chunkedTop10SongList = cunkArray(songListTop10, 4) as TopSong[][];
+const GenreListCarousel: React.FC<IGenreListCarouselProps> = ({ title, subTitle, Thumbnail, GeneList }) => {
+  const GenericList = cunkArray(GeneList, 4);
 
   return (
     <div className="w-full mt-10">
@@ -49,9 +50,9 @@ const SongListCarousel: React.FC<ISongListCarouselProps> = ({ title, subTitle, T
           </div>
         </div>
         <CarouselContent className=" w-full ">
-          {chunkedTop10SongList?.map((el, index) => (
-            <CarouselItem key={index} className="gap-4  lg:basis-1/3 sm:basis-1/2 ">
-              <SongColumn songList={el} />
+          {GenericList?.map((el, index) => (
+            <CarouselItem key={index} className=" xl:basis-1/5 sm:basis-1/2 lg:basis-1/3 ">
+              <GenericColum GeneList={el} />
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -60,4 +61,4 @@ const SongListCarousel: React.FC<ISongListCarouselProps> = ({ title, subTitle, T
   );
 };
 
-export default SongListCarousel;
+export default GenreListCarousel;
