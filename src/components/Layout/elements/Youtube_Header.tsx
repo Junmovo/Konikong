@@ -38,7 +38,7 @@ const YHeader = ({ children }: { children: React.ReactNode }) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const headRef = useRef<HTMLHeadElement>(null);
 
-  const onDebounced = _.debounce((v: number | undefined) => {
+  const onDebounced = _.throttle((v: number | undefined) => {
     setIsScrolled(v !== 0);
   }, 100);
 

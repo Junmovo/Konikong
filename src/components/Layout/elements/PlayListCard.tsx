@@ -22,7 +22,14 @@ const PlayListCard = ({ playlist }: IPropsPlaylist) => {
   return (
     <article className="mt-[20px]  cursor-pointer" onClick={onClickCard}>
       <section className=" relative h-[160px] mb-4 group ">
-        <Image src={imageSrc} fill={true} alt="사진" className="object-cover" />
+        <Image
+          src={imageSrc}
+          fill={true}
+          alt="사진"
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
+        />
         <div className="relative hidden group-hover:block bg-[rgba(0,0,0,0.4)] w-full h-[160px]">
           <div className="absolute right-[5px] top-2">
             <IconButton icon={<MdMoreVert size={24} />}></IconButton>
