@@ -1,12 +1,15 @@
 import React from 'react';
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+import Header from '@/components/Layout/elements/Youtube_Header';
+import SideBar from '@/components/Layout/SideBar';
+
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
-      레이아웃입니다.
-      {children}
+    <div className="flex flex-row h-full ">
+      <SideBar />
+      <div className="flex-1">
+        <Header>{children}</Header>
+      </div>
     </div>
   );
-};
-
-export default layout;
+}

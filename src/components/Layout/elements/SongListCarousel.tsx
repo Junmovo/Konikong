@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { TopSong } from '@/types/Music';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import cunkArray from '@/lib/utils';
-import SongCard from '@/app/(myProject)/YT_Music/explore/components/SongCard';
+import SongCard from './SongCard';
 
 interface ISongListCarouselProps {
   title: string;

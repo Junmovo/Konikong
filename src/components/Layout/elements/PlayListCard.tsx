@@ -1,3 +1,4 @@
+'use client';
 import { getRandomArrElements } from '@/lib/utils';
 import { IPropsPlaylist } from '@/types/Music';
 import Image from 'next/image';
@@ -26,7 +27,7 @@ const PlayListCard = ({ playlist }: IPropsPlaylist) => {
           src={imageSrc}
           fill={true}
           alt="사진"
-          className="object-cover"
+          className="object-cover rounded-md"
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8UA8AAiUBUcc3qzwAAAAASUVORK5CYII="
         />

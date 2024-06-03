@@ -6,6 +6,11 @@ export interface IconButtonProps {
   icon: React.ReactNode;
   onClickIcon?: () => void;
 }
+export interface IconButtonColorProps {
+  icon: React.ReactNode;
+  title: string;
+  className?: string;
+}
 export interface ILogoProps {
   Open?: boolean;
   onClickClose?: () => void;
