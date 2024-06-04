@@ -6,7 +6,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 export default function CharacterPage({ params }: { params: ISearchParams }) {
-  const [SearchValue, setSearchValue] = useState<string>('');
   const [CharacterInfo, setCharacterInfo] = useState<ICharterInfo[]>([]);
 
   useEffect(() => {

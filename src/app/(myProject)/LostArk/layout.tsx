@@ -3,6 +3,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { ThemeProvider } from '../../../../provider/ThemeProvider';
 import ArkHeader from '@/components/Layout/Ark_elements/Header';
+import ArkWrapper from '@/components/Layout/Ark_elements/ArkWrapper';
 
 export const metadata: Metadata = {
   title: 'Mokokong',
@@ -16,7 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
       <ArkHeader />
-      {children}
+      <ArkWrapper>{children}</ArkWrapper>
     </ThemeProvider>
   );
 }

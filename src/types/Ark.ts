@@ -10,3 +10,8 @@ export interface ICharterInfo {
 export interface ISearchParams {
   Id: string;
 }
+
+export interface IHeaderMenu {
+  label: string;
+  link: string;
+}
