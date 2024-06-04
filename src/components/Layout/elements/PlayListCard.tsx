@@ -17,7 +17,6 @@ const PlayListCard = ({ playlist }: IPropsPlaylist) => {
   };
   const onClickPlay = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-    console.log(1);
   };
 
   return (

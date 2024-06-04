@@ -5,7 +5,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import PlayListCard from './PlayListCard';
 
 interface IPlayListCarouselProps {
-  title: string;
+  title?: string;
   subTitle?: string;
   Thumbnail?: React.ReactNode;
   playlistArray?: IPlaylist[];
@@ -13,7 +13,8 @@ interface IPlayListCarouselProps {
 
 const PlayListCarousel: React.FC<IPlayListCarouselProps> = ({ title, subTitle, Thumbnail, playlistArray }) => {
   return (
-    <div className="w-full mt-10">
+    <div className="w-full">
+      <div className="mt-10"></div>
       <Carousel className="w-full">
         <div className="flex flex-row justify-between">
           <article className="flex flex-row gap-3 items-center">

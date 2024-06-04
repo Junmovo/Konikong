@@ -33,7 +33,7 @@ const GenreListCarousel: React.FC<IGenreListCarouselProps> = ({ title, subTitle,
           align: 'start',
         }}
       >
-        <div className="flex flex-row justify-between mb-[12px]">
+        <div className="flex flex-row justify-between mb-[20px]">
           <article className="flex flex-row gap-3 items-center">
             {Thumbnail ?? ''}
             <div>

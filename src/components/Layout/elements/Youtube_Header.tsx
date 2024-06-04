@@ -14,10 +14,11 @@ import LogoImg from './LogoImg';
 import { cn } from '@/lib/utils';
 import useUIState from '@/hooks/useUIState';
 import _ from 'lodash';
+import usePlayerState from '@/hooks/usePlayerState';
+import PlayerWrapper from '@/components/player/PlayerWrapper';
 
 const HeaderDrawer = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const isHandler = () => {
     setIsOpen((prev) => !prev);
   };
@@ -34,6 +35,8 @@ const HeaderDrawer = ({ children }: { children: React.ReactNode }) => {
 };
 
 const YHeader = ({ children }: { children: React.ReactNode }) => {
+  const { isVisiblePlayer } = usePlayerState();
+
   const { headerImageSrc } = useUIState();
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const headRef = useRef<HTMLHeadElement>(null);
@@ -102,7 +105,8 @@ const YHeader = ({ children }: { children: React.ReactNode }) => {
           </div>
         </PagePadding>
       </section>
-      <section className="relative">{children}</section>
+      <section className={cn('relative', isVisiblePlayer ? 'pb-[72px]' : '')}>{children}</section>
+      <PlayerWrapper />
     </header>
   );
 };

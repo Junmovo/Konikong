@@ -4,6 +4,7 @@ import PagePadding from '@/components/Layout/elements/PagePadding';
 import PlayListCarousel from '@/components/Layout/elements/PlayListCarousel';
 import { dummyPlaylistArray, getPlaylistById } from '@/lib/dummyData';
 import UserIcon from '@/components/Layout/elements/UserIcon';
+import PlayerWrapper from '@/components/player/PlayerWrapper';
 
 export default async function YTMusic() {
   const dummyPlaylistArray1 = [...dummyPlaylistArray];
@@ -16,7 +17,6 @@ export default async function YTMusic() {
     <PagePadding>
       <div className="mt-9">
         <Category />
-        {/* <div className="bg-slate-600 h-[100vh]">asd</div> */}
         <PlayListCarousel
           playlistArray={[...dummyPlaylistArray1]}
           Thumbnail={

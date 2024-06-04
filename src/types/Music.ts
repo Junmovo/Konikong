@@ -7,7 +7,7 @@ export interface IconButtonProps {
   onClickIcon?: () => void;
 }
 export interface IconButtonColorProps {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   title: string;
   className?: string;
 }

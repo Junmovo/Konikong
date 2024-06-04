@@ -202,7 +202,7 @@ export const dummyChannelList = [
 ];
 
 export const getChannelById = async (id) => {
-  return dummyChannelList.filter((channel) => channel.id === id)?.[0];
+  return dummyChannelList.filter((channel) => channel.id === Number(id))?.[0];
 };
 
 // home - 카테고리
