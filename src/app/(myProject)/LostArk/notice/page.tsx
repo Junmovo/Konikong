@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { INoticeInfo } from '@/types/Ark';
-import { apikey } from '@/app/(myProject)/LostArk/service/service';
+import instance from '@/app/(myProject)/LostArk/service/service';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -22,22 +22,35 @@ export default function LostArkNotice() {
     setPage(page);
   };
 
+  const getAPIData = async () => {
+    const res = instance({
+      method: 'GET',
+      url: 'news/notices',
+    }).then((res) => {
+      console.log(res);
+    });
+    console.log(res);
+  };
+
   useEffect(() => {
-    const searchNotice = async (): Promise<void> => {
-      try {
-        const { data } = await axios.get(`https://developer-lostark.game.onstove.com/news/notices`, {
-          headers: {
-            accept: 'application/json',
-            authorization: `bearer ${apikey}`,
-          },
-        });
-        setNoticeInfo(data);
-      } catch (error) {
-        console.log('데이터를 받아오지 못했습니다', error);
-      }
-    };
-    searchNotice();
+    getAPIData();
   }, []);
+  // useEffect(() => {
+  //   const searchNotice = async (): Promise<void> => {
+  //     try {
+  //       const { data } = await axios.get(`https://developer-lostark.game.onstove.com/news/notices`, {
+  //         headers: {
+  //           accept: 'application/json',
+  //           authorization: `bearer ${apikey}`,
+  //         },
+  //       });
+  //       setNoticeInfo(data);
+  //     } catch (error) {
+  //       console.log('데이터를 받아오지 못했습니다', error);
+  //     }
+  //   };
+  //   searchNotice();
+  // }, []);
 
   return (
     <div className="mt-10">
