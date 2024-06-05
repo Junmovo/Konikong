@@ -9,7 +9,7 @@ export default function CharacterPage({ params }: { params: ISearchParams }) {
   const [CharacterInfo, setCharacterInfo] = useState<ICharterInfo[]>([]);
 
   useEffect(() => {
-    const click = async (): Promise<void> => {
+    const searchCharacter = async (): Promise<void> => {
       try {
         const { data } = await axios.get(
           `https://developer-lostark.game.onstove.com/characters/${params.Id}/siblings`,
@@ -25,7 +25,7 @@ export default function CharacterPage({ params }: { params: ISearchParams }) {
         console.log('데이터를 받아오지 못했습니다', error);
       }
     };
-    click();
+    searchCharacter();
   }, [params.Id]);
   return (
     <div>

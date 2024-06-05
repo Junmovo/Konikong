@@ -4,8 +4,12 @@ import _ from 'lodash';
 import { useRouter } from 'next/navigation';
 import { IoSearchOutline } from 'react-icons/io5';
 import { cn } from '@/lib/utils';
+interface ISearchBarProps {
+  header: boolean;
+  main?: boolean;
+}
 
-export default function SearchBar({ header }: { header: boolean }) {
+export default function SearchBar({ header, main }: ISearchBarProps) {
   const [SearchValue, setSearchValue] = useState<string>('');
   const router = useRouter();
 
@@ -29,7 +33,7 @@ export default function SearchBar({ header }: { header: boolean }) {
   };
 
   return (
-    <div className={cn('relative', header ? 'w-[350px]' : 'w-[50%]')}>
+    <div className={cn('relative', header ? 'w-[300px]' : 'w-[50%]', main ? 'hidden' : 'block')}>
       <input
         type="text"
         className="w-full bg-slate-100 px-[20px] py-[10px] rounded-[10px] outline-none"

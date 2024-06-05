@@ -15,3 +15,10 @@ export interface IHeaderMenu {
   label: string;
   link: string;
 }
+
+export interface INoticeInfo {
+  Title: string;
+  Date: string;
+  Link: string;
+  Type: string;
+}
