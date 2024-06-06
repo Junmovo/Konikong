@@ -3,9 +3,7 @@ import axios from 'axios';
 
 dotenv.config();
 
-const apikey = process.env.LOSTARK_API_KEY;
-
-console.log(apikey);
+const apikey = process.env.NEXT_PUBLIC_LOSTARK_API_KEY;
 
 const instance = axios.create({
   baseURL: 'https://developer-lostark.game.onstove.com',
