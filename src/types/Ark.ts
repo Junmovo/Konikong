@@ -22,3 +22,12 @@ export interface INoticeInfo {
   Link: string;
   Type: string;
 }
+
+export interface IEventInfo {
+  Title: string;
+  Thumbnail: string;
+  Link: string;
+  StartDate: string;
+  EndDate: string;
+  RewardDate: null;
+}

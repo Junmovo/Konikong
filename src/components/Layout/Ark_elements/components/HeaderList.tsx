@@ -19,20 +19,21 @@ const HeaderList = () => {
   const pathname = usePathname();
   const mainPath = pathname === '/LostArk';
   return (
-    <div className="flex justify-between items-center w-full">
-      <ul className="flex gap-4 ">
+    <div className="flex justify-between items-center w-full h-[64px]">
+      <ul className="flex  ">
         {HeaderMenu.map((menu, idx) => (
           <li key={idx} className="relative">
             <Link
               href={menu.link}
               className={cn(
-                'font-semibold text-[#9c9d9e] hover:text-[#425ad5]  transition px-[15px] py-[10px] hover:bg-slate-100 rounded-[5px]',
-                menu.link === pathname ? 'text-[#425ad5] bg-slate-100' : ''
+                'h-[64px] flex items-center font-semibold text-[#9c9d9e] hover:text-[#425ad5] relative transition px-[15px] py-[10px] hover:before:contents-[""] hover:before:absolute hover:before:bottom-0 hover:before:left-0 hover:before:w-full hover:before:h-[2px] before:transition-[all 200ms cubic-bezier(0.65, 0, 0.35, 1)] hover:before:bg-[#425ad5]',
+                menu.link === pathname
+                  ? 'text-[#425ad5] before:contents-[""] before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:ease-out before:bg-[#425ad5]'
+                  : ''
               )}
             >
               {menu.label}
             </Link>
-            {/* <div className="absolute b-0 border h-[1px]"></div> */}
           </li>
         ))}
       </ul>

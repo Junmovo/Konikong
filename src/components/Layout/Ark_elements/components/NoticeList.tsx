@@ -12,6 +12,7 @@ interface NoticeListProps {
 const NoticeList = ({ notice }: NoticeListProps) => {
   const { Title, Date: NoticeDate, Link, Type } = notice;
   const [Date, Time] = NoticeDate.split('T'); // 작성시간
+  const FetchDate = Date.replaceAll('-', '/');
   const Today = getToday();
   const NowTime = getTime();
   const getTimeAgo = () => {
@@ -21,7 +22,7 @@ const NoticeList = ({ notice }: NoticeListProps) => {
     }
   };
   return (
-    <MovedLink href={Link} className="block w-full p-[12px]" target="_blank">
+    <MovedLink href={Link} className="block w-full p-[15px]" target="_blank">
       <div className="flex justify-between">
         <div className="flex w-[70px] justify-center ">
           <NoticeBedge type={Type} />
@@ -39,7 +40,7 @@ const NoticeList = ({ notice }: NoticeListProps) => {
           )}
         </div>
         <div className="flex w-[10%] justify-center items-center text-[#9c9d9e] text-[14px]">
-          {Date === Today ? getTimeAgo() : Date}
+          {Date === Today ? getTimeAgo() : FetchDate}
         </div>
       </div>
     </MovedLink>
