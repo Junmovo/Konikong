@@ -8,11 +8,30 @@ import NoticeList from '@/components/Layout/Ark_elements/components/NoticeList';
 
 export default function LostArkNotice() {
   const [NoticeInfo, setNoticeInfo] = useState<INoticeInfo[]>([]);
+  const [FilteredNoticeInfo, setFilteredNoticeInfo] = useState<INoticeInfo[]>([]);
   const [Page, setPage] = useState<number>(1);
-  const Pagination = Math.floor(NoticeInfo.length / 10 + 1);
+  const [NowActive, setNowActive] = useState<string>('전체');
+  const Pagination = Math.floor(FilteredNoticeInfo.length / 10 + 1);
   const LastPage = Page * 10;
   const FisrtPage = LastPage - 10;
-  const SliceNotice = NoticeInfo.slice(FisrtPage, LastPage);
+  const SliceNotice = FilteredNoticeInfo.slice(FisrtPage, LastPage);
+  const filterList = ['전체', '공지', '이벤트', '점검', '상점'];
+
+  const onClickFilter = (filter: string) => () => {
+    if (filter === '전체') {
+      setFilteredNoticeInfo(NoticeInfo);
+      setNowActive(filter);
+      return;
+    }
+    const result = NoticeInfo.reduce<Record<string, INoticeInfo[]>>((acc, curr) => {
+      const { Type } = curr;
+      if (acc[Type]) acc[Type].push(curr);
+      else acc[Type] = [curr];
+      return acc;
+    }, {});
+    setNowActive(filter);
+    setFilteredNoticeInfo(result[filter]);
+  };
 
   const PageMoved = (page: number) => () => {
     if (page === Page) {
@@ -24,6 +43,7 @@ export default function LostArkNotice() {
   const getAPIData = async () => {
     const { data } = await instance.get('/news/notices');
     setNoticeInfo(data);
+    setFilteredNoticeInfo(data);
   };
 
   useEffect(() => {
@@ -32,12 +52,27 @@ export default function LostArkNotice() {
 
   return (
     <div className="mt-10">
-      <div className="text-[36px] font-bold mb-[30px]">공지사항</div>
-      {/* <div className="text-[16px] text-neutral-500">서브</div> */}
+      <div className="text-[36px] font-bold mb-[20px]">공지사항</div>
+      <div className="pb-[20px] border-b-[2px] border-neutral-500">
+        <ul className="flex gap-2">
+          {filterList.map((tag, idx) => (
+            <li
+              key={idx}
+              className={cn(
+                'px-[15px] py-[8px] w-[] text-[14px] rounded-full cursor-pointer hover:bg-slate-50 border',
+                NowActive === tag ? 'bg-[#e8eaf7]  text-[#425ad5] font-semibold' : 'border'
+              )}
+              onClick={onClickFilter(tag)}
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </div>
       <div>
         <ul>
           {SliceNotice?.map((notice, idx) => (
-            <li key={idx} className="last:border-none border-neutral-300 border-b-[1px] ">
+            <li key={idx} className="last:border-none border-neutral-300 border-b-[1px] hover:bg-slate-50">
               <NoticeList notice={notice} />
             </li>
           ))}
@@ -49,7 +84,7 @@ export default function LostArkNotice() {
             <li
               key={idx}
               className={cn(
-                'px-[15px] py-[5px] text-[#9c9d9e] cursor-pointer',
+                'px-[15px] py-[5px] text-[#9c9d9e] cursor-pointer hover:bg-slate-50',
                 Page === idx + 1 ? 'text-[#425ad5] bg-[#e8eaf7] rounded-[5px]' : ''
               )}
               onClick={PageMoved(idx + 1)}
