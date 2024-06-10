@@ -17,7 +17,7 @@ const FavoritesLog = () => {
 
   return (
     <div>
-      <div className="bg-white rounded-[3px]">
+      <div className="bg-white overflow-hidden rounded-lg">
         <ul>
           {favorites.length ? (
             favorites.map((value, idx) => (
@@ -27,7 +27,7 @@ const FavoritesLog = () => {
               >
                 <div
                   onClick={onClickMovetoPage(`/LostArk/character/${value}`)}
-                  className="flex items-center justify-between p-2 px-[20px] w-full "
+                  className="flex items-center justify-between p-2 px-[20px] w-full cursor-pointer"
                 >
                   <div key={idx} className="">
                     {value}

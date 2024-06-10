@@ -20,8 +20,8 @@ const SearchLog = () => {
 
   return (
     <div>
-      <div className="bg-white rounded-[3px]">
-        <ul>
+      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+        <ul className="">
           {searchValue.length ? (
             searchValue.map((value, idx) => (
               <li
@@ -30,7 +30,7 @@ const SearchLog = () => {
               >
                 <div
                   onClick={onClickMovetoPage(`/LostArk/character/${value}`)}
-                  className="flex items-center justify-between p-2 px-[20px] w-full cursor-pointer"
+                  className="flex items-center justify-between p-2 px-[20px] w-full cursor-pointer rounded-lg"
                 >
                   <div key={idx} className="">
                     {value}
