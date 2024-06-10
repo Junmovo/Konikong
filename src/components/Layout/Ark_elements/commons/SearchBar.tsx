@@ -1,12 +1,12 @@
 'use client';
 import { ChangeEvent, KeyboardEvent, useState } from 'react';
-import _ from 'lodash';
 import { useRouter } from 'next/navigation';
 import { IoSearchOutline } from 'react-icons/io5';
 import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import SearchLog from '../SearchLog';
+import SearchLog from '../components/SearchLog';
 import useLostArkSearchStore from '@/stores/useLostArkSearchStore';
+import FavoritesLog from '../components/FavoritesLog';
 
 interface ISearchBarProps {
   header: boolean;
@@ -15,29 +15,26 @@ interface ISearchBarProps {
 
 export default function SearchBar({ header, main }: ISearchBarProps) {
   const [SearchValue, setSearchValue] = useState<string>('');
-  const { searchValue, addSearchValue } = useLostArkSearchStore();
+  const { addSearchValue } = useLostArkSearchStore();
   const router = useRouter();
 
-  const deBounce = _.debounce((v) => {
-    setSearchValue(v);
-  }, 300);
-
   const onChangeCharacterValue = (e: ChangeEvent<HTMLInputElement>) => {
-    deBounce(e.target.value);
+    setSearchValue(e.target.value);
   };
 
   const onClickSearchCharacter = () => {
-    addSearchValue(`${SearchValue}`);
+    if (!SearchValue) return;
     router.push(`/LostArk/character/${SearchValue}`);
+    addSearchValue(`${SearchValue}`);
   };
   const handelKeydown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (!SearchValue) return;
     if (e.key === 'Enter') {
-      addSearchValue(`${SearchValue}`);
       router.push(`/LostArk/character/${SearchValue}`);
+      addSearchValue(`${SearchValue}`);
     }
   };
-
+  console.log(SearchValue);
   return (
     <div>
       <div className={cn('relative', header ? 'w-[300px]' : 'w-[480px]', main ? 'hidden' : 'block')}>
@@ -50,6 +47,7 @@ export default function SearchBar({ header, main }: ISearchBarProps) {
           placeholder="캐릭터명을 입력해주세요."
           onChange={onChangeCharacterValue}
           onKeyDown={handelKeydown}
+          defaultValue={SearchValue}
         />
         <button
           className="absolute right-[10px] top-[50%] translate-y-[-50%] py-[10px] px-[5px]"
@@ -62,14 +60,16 @@ export default function SearchBar({ header, main }: ISearchBarProps) {
             <TabsTrigger value="searchvalue" className="w-[50%]">
               최근검색
             </TabsTrigger>
-            <TabsTrigger value="password" className="w-[50%]">
+            <TabsTrigger value="favorites" className="w-[50%]">
               즐겨찾기
             </TabsTrigger>
           </TabsList>
           <TabsContent value="searchvalue" className="mt-0">
             <SearchLog />
           </TabsContent>
-          <TabsContent value="password">Change your password here.</TabsContent>
+          <TabsContent value="favorites" className="mt-0">
+            <FavoritesLog />
+          </TabsContent>
         </Tabs>
       </div>
     </div>

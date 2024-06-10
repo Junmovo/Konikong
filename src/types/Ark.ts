@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react';
+
 export interface ICharterInfo {
   ServerName: string;
   CharacterName: string;
@@ -30,4 +32,8 @@ export interface IEventInfo {
   StartDate: string;
   EndDate: string;
   RewardDate: null;
+}
+export interface IconButtonProps {
+  icon: React.ReactNode;
+  onClickIcon?: (e: MouseEvent<HTMLDivElement>) => void;
 }

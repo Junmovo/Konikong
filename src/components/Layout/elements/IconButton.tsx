@@ -1,5 +1,6 @@
 'use client';
-import { IconButtonProps } from '@/types/Music';
+
+import { IconButtonProps } from '@/types/Ark';
 
 export default function IconButton({ icon, onClickIcon = () => {} }: IconButtonProps) {
   return (

@@ -4,7 +4,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Autoplay from 'embla-carousel-autoplay';
 import instance from '@/app/(myProject)/LostArk/service/service';
 import { IEventInfo } from '@/types/Ark';
-import EventList from './components/EventList';
+import EventList from './EventList';
 
 const EventBanner = () => {
   const [EventInfo, setEventInfo] = useState<IEventInfo[]>([]);

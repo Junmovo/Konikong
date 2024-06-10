@@ -2,10 +2,7 @@ export interface IitemsType {
   label: string;
   src: string;
 }
-export interface IconButtonProps {
-  icon: React.ReactNode;
-  onClickIcon?: () => void;
-}
+
 export interface IconButtonColorProps {
   icon?: React.ReactNode;
   title: string;
