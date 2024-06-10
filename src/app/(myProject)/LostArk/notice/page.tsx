@@ -71,7 +71,7 @@ export default function LostArkNotice() {
               <li
                 key={idx}
                 className={cn(
-                  'px-[15px] py-[8px] w-[] text-[14px] rounded-full cursor-pointer hover:bg-slate-50 border',
+                  'px-[15px] py-[8px] w-[] text-[14px] rounded-full cursor-pointer hover:bg-gray-100 border ',
                   NowActive === tag ? 'bg-[#e8eaf7]  text-[#425ad5] font-semibold' : 'border'
                 )}
                 onClick={onClickFilter(tag)}
@@ -84,7 +84,7 @@ export default function LostArkNotice() {
         <div>
           <ul>
             {SliceNotice?.map((notice, idx) => (
-              <li key={idx} className="last:border-none border-neutral-300 border-b-[1px] hover:bg-slate-50">
+              <li key={idx} className="last:border-none border-neutral-300 border-b-[1px] hover:bg-gray-100">
                 <NoticeList notice={notice} />
               </li>
             ))}
@@ -93,7 +93,7 @@ export default function LostArkNotice() {
         <div className=" w-full items-center justify-center flex mt-10">
           <ul className="flex gap-1 items-center">
             <li
-              className="px-[10px] py-[10px] text-[#9c9d9e] cursor-pointer hover:bg-slate-50 rounded-full"
+              className="px-[10px] py-[10px] text-[#9c9d9e] cursor-pointer hover:bg-gray-100 rounded-full"
               onClick={prevPage}
             >
               <IoIosArrowBack />
@@ -102,7 +102,7 @@ export default function LostArkNotice() {
               <li
                 key={idx}
                 className={cn(
-                  'px-[15px] py-[5px] text-[#9c9d9e] cursor-pointer hover:bg-slate-50 rounded-full',
+                  'px-[15px] py-[5px] text-[#9c9d9e] cursor-pointer hover:bg-gray-100 rounded-full',
                   Page === idx + 1 ? 'text-[#425ad5] bg-[#e8eaf7] rounded-full' : ''
                 )}
                 onClick={PageMoved(idx + 1)}
@@ -111,7 +111,7 @@ export default function LostArkNotice() {
               </li>
             ))}
             <li
-              className="px-[10px] py-[10px] text-[#9c9d9e] cursor-pointer hover:bg-slate-50 rounded-full"
+              className="px-[10px] py-[10px] text-[#9c9d9e] cursor-pointer hover:bg-gray-100 rounded-full"
               onClick={nextPage}
             >
               <IoIosArrowForward />

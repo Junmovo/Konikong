@@ -20,7 +20,7 @@ const HeaderList = () => {
   const mainPath = pathname === '/LostArk';
   return (
     <div className="flex justify-between items-center w-full h-[64px]">
-      <ul className="flex  ">
+      <ul className="flex">
         {HeaderMenu.map((menu, idx) => (
           <li key={idx} className="relative">
             <Link
