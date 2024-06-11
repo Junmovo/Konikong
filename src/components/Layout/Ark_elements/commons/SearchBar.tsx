@@ -70,25 +70,27 @@ export default function SearchBar({ header, main }: ISearchBarProps) {
   return (
     <div>
       <div className={cn('relative', header ? 'w-[300px]' : 'w-[480px]', main ? 'hidden' : 'block')}>
-        <input
-          type="text"
-          className={cn(
-            'w-full rounded-[10px] outline-none',
-            header ? 'px-[20px] py-[10px] bg-slate-100' : 'px-[30px] py-[20px]'
-          )}
-          placeholder="캐릭터명을 입력해주세요."
-          onChange={onChangeCharacterValue}
-          onKeyDown={handelKeydown}
-          onFocus={onFoucsModal}
-          ref={inputRef}
-        />
-        <button
-          className="absolute right-[10px] top-[50%] translate-y-[-50%] py-[10px] px-[5px]"
-          onClick={onClickSearchCharacter}
-        >
-          <IoSearchOutline size={25} />
-        </button>
-
+        <form action={`/LostArk/character/${SearchValue}`}>
+          <input
+            type="text"
+            className={cn(
+              'w-full rounded-[10px] outline-none',
+              header ? 'px-[20px] py-[10px] bg-slate-100' : 'px-[30px] py-[20px]'
+            )}
+            placeholder="캐릭터명을 입력해주세요."
+            onChange={onChangeCharacterValue}
+            onKeyDown={handelKeydown}
+            onFocus={onFoucsModal}
+            value={SearchValue}
+            ref={inputRef}
+          />
+          <button
+            className="absolute right-[10px] top-[50%] translate-y-[-50%] py-[10px] px-[5px]"
+            onClick={onClickSearchCharacter}
+          >
+            <IoSearchOutline size={25} />
+          </button>
+        </form>
         {ShowModal && (
           <div ref={modalRef}>
             <Tabs defaultValue="searchvalue" className="absolute w-full z-[1]  mt-[10px] ">

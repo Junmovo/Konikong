@@ -78,19 +78,16 @@ const useLostArkSearchStore = create<LostarkState>()(
           }));
 
           set((state) => {
-            if (state.searchValue.some((el) => el.name === item)) {
-              if (state.searchValue.length === 1) {
-                return { searchValue: state.searchValue };
-              }
-              const newList = state.searchValue;
-              const index = newList.indexOf(SearchInfo);
-              newList.splice(index, 1);
+            const existingIndex = state.searchValue.findIndex((el) => el.name === item);
+            console.log(existingIndex);
+            if (existingIndex !== -1) {
+              const newList = [...state.searchValue];
+              newList.splice(existingIndex, 1);
               newList.unshift(SearchInfo[0]);
               return { searchValue: newList };
             } else {
               if (state.searchValue.length > 7) {
                 state.searchValue.pop();
-                return { searchValue: [...SearchInfo, ...state.searchValue] };
               }
               return { searchValue: [...SearchInfo, ...state.searchValue] };
             }
