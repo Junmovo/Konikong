@@ -30,12 +30,16 @@ export default function SearchBar({ header, main }: ISearchBarProps) {
     if (!SearchValue) return;
     router.push(`/LostArk/character/${SearchValue}`);
     addSearchValue(`${SearchValue}`);
+    setShowModal(false);
   };
   const handelKeydown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (!SearchValue) return;
     if (e.key === 'Enter') {
       router.push(`/LostArk/character/${SearchValue}`);
       addSearchValue(`${SearchValue}`);
+      setSearchValue('');
+      inputRef.current?.blur();
+      setShowModal(false);
     }
   };
   const onFoucsModal = () => {
@@ -57,6 +61,9 @@ export default function SearchBar({ header, main }: ISearchBarProps) {
     document.addEventListener('click', clickWrapp);
     return () => {
       document.removeEventListener('click', clickWrapp);
+      setSearchValue('');
+      setShowModal(false);
+      inputRef.current?.blur();
     };
   }, []);
 

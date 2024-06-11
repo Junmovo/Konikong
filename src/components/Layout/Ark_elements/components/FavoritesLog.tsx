@@ -1,42 +1,39 @@
 import useLostArkSearchStore from '@/stores/useLostArkSearchStore';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import IconButton from '../../elements/IconButton';
 import { CiStar } from 'react-icons/ci';
 import { IoMdClose } from 'react-icons/io';
 import NoneContents from '../commons/NoneContents';
 import { useMoveToPage } from '@/hooks/useMovedToPage';
+import SearchValueCard from './SearchValueCard';
 
 const FavoritesLog = () => {
   const { onClickMovetoPage } = useMoveToPage();
-  const { favorites, addFavorites } = useLostArkSearchStore();
-  // const onClickRemove = (v: string) => (e: React.MouseEvent<HTMLDivElement>) => {
-  //   e.stopPropagation();
-  //   addFavorites(v);
-  // };
+  const { favorites, addFavorites, removeFaovorites } = useLostArkSearchStore();
+  const [like, setLike] = useState(false);
+  const onClickRemove = (v: string) => (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    removeFaovorites(v);
+  };
+  const onClickFavorite = (v: string) => (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    setLike(!like);
+    addFavorites(v);
+  };
 
   return (
     <div>
-      <div className="bg-white overflow-hidden rounded-lg">
+      <div className="rounded-lg bg-white overflow-hidden shadow-lg">
         <ul>
           {favorites.length ? (
             favorites.map((value, idx) => (
-              <li
+              <SearchValueCard
+                value={value}
                 key={idx}
-                className=" border-neutral-300 border-b-[1px]  last:border-none first:border-t-none hover:bg-gray-50"
-              >
-                <div
-                  onClick={onClickMovetoPage(`/LostArk/character/${value}`)}
-                  className="flex items-center justify-between p-2 px-[20px] w-full cursor-pointer"
-                >
-                  <div key={idx} className="">
-                    {value}
-                  </div>
-                  <div className="flex">
-                    <IconButton icon={<CiStar />} />
-                  </div>
-                </div>
-              </li>
+                onClickAddFavorite={onClickFavorite}
+                onClickRemove={onClickRemove}
+              />
             ))
           ) : (
             <NoneContents contents={'즐겨찾기된 캐릭터가 없습니다.'} />

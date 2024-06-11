@@ -37,3 +37,21 @@ export interface IconButtonProps {
   icon: React.ReactNode;
   onClickIcon?: (e: MouseEvent<HTMLDivElement>) => void;
 }
+
+export interface ISearchLogValue {
+  name: string;
+  class: string;
+  level: string;
+  server: string;
+}
+export interface ISearchLogValueProps {
+  value: {
+    name: string;
+    class: string;
+    level: string;
+    server: string;
+  };
+  onClickAddFavorite: (v: string) => (e: MouseEvent<HTMLDivElement>) => void;
+  onClickRemove: (v: string) => (e: MouseEvent<HTMLDivElement>) => void;
+  key: number;
+}
