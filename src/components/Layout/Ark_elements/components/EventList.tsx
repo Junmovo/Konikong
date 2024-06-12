@@ -14,7 +14,7 @@ const EventList = ({ List }: EventListProps) => {
   const [E_date, E_Time] = EndDate.split('T');
 
   return (
-    <CarouselItem className="pl-3  md:basis-1/2 lg:basis-1/3 group">
+    <CarouselItem className="pl-3 md:basis-1/2 lg:basis-1/3 group">
       <Link href={Target} target="_blank">
         <div className="relative w-full h-[180px] rounded-[20px] overflow-hidden ">
           <Image src={Thumbnail} fill alt={Title} className="group-hover:scale-105 transition" />

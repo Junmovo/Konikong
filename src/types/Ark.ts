@@ -9,6 +9,36 @@ export interface ICharterInfo {
   ItemMaxLevel: string;
 }
 
+export interface ICharterProfiles extends ICharterInfo {
+  CharacterImage: string;
+  ExpeditionLevel: number;
+  PvpGradeName: string;
+  TownLevel: number;
+  TownName: string;
+  Title: string;
+  GuildMemberGrade: string;
+  GuildName: string;
+  UsingSkillPoint: number;
+  TotalSkillPoint: number;
+  Stats: {
+    Type: string;
+    Value: string;
+    Tooltip: string;
+  };
+}
+export interface ICharacterWeapon {
+  Type: string;
+  Name: string;
+  Icon: string;
+  Grade: string;
+  Tooltip: string;
+}
+
+export interface IInfoProps {
+  CharacterInfo?: ICharterProfiles;
+  decodedId: string;
+}
+
 export interface ISearchParams {
   Id: string;
 }
