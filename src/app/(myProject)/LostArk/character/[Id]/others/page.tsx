@@ -1,3 +1,4 @@
+import { ISearchParams } from '@/types/Ark';
 import React from 'react';
 
 const OthersPage = () => {

@@ -8,6 +8,7 @@ import { ICharacterWeapon, ICharterProfiles, ISearchParams } from '@/types/Ark';
 import { useState } from 'react';
 import instance from '../../../../../app/(myProject)/LostArk/service/service';
 import CharactersMenu from '@/components/Layout/Ark_elements/components/Character/CharactersMenu';
+import NoneContents from '@/components/Layout/Ark_elements/commons/NoneContents';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -42,23 +43,18 @@ export default function Layout({ children, params }: LayoutProps) {
   if (loading) {
     return <LostArk_LoadingBar />;
   }
+  if (!CharacterInfo) {
+    return <NoneContents contents={`'${decodedId}' 캐릭터 정보가 없습니다.`} />;
+  }
 
   return (
     <>
       <div className="w-full">
-        {/* <div className="bg-[#14181d] w-full h-[300px]">
-          <div className="w-[1080px] mx-auto h-full relative overflow-hidden">
-            <div className="  absolute left-1/2 translate-x-[-50%]"></div>
-          </div>
-          <div className="absolute bottom-[-20px] flex  bg-[rgba(0,0,0,0.2)] p-2 rounded-lg">
-            <div className="flex">
-              <a href=""></a>
-            </div>
-          </div>
-        </div> */}
         <ArkPadding>
-          <CharacterPage CharacterInfo={CharacterInfo} decodedId={decodedId} />
-          <CharactersMenu>{children}</CharactersMenu>
+          <div className="flex gap-5 mt-10">
+            <CharacterPage CharacterInfo={CharacterInfo} decodedId={decodedId} />
+            <CharactersMenu>{children}</CharactersMenu>
+          </div>
         </ArkPadding>
       </div>
     </>
