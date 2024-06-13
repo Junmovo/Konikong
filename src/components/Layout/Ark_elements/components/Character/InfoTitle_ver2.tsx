@@ -16,7 +16,7 @@ const InfoBox_ver2: React.FC<IInfoBoxProps> = ({ title, contents, subcontents, c
   return (
     <div className="flex items-center ">
       <div
-        className={`bg-gray-600 rounded-lg text-[12px] text-white w-[45px] text-center px-[6px] mr-[5px] ${colorVariants[color]}`}
+        className={` rounded-lg text-[12px] text-white w-[45px] text-center px-[6px] mr-[5px] ${colorVariants[color]}`}
       >
         {title}
       </div>

@@ -59,3 +59,35 @@ export function getTime() {
 
   return hours + ':' + minutes + ':' + seconds;
 }
+
+export const Qualitycolor = (v: number) => {
+  if (v === 100) {
+    return 'bg-[#f9ae00]';
+  } else if (v >= 90) {
+    return 'bg-[#8045dd]';
+  } else if (v >= 70) {
+    return 'bg-[#2AB1F6]';
+  } else if (v >= 60) {
+    return 'bg-[#A0E71C]';
+  } else if (v >= 30) {
+    return 'bg-[#FFE81D]';
+  } else {
+    return 'hidden';
+  }
+};
+
+export const colorGrade = (G: string) => {
+  if (G === '고대') {
+    return ' bg-gradient-to-br from-[#3d3325] to-[#dcc999] ';
+  } else if (G === '유물') {
+    return ' bg-gradient-to-br from-[#341a09] to-[#a24006] ';
+  } else if (G === '전설') {
+    return ' bg-gradient-to-135deg from-[#362003] to-[#9e5f04] ';
+  } else if (G === '영웅') {
+    return ' bg-gradient-to-br from-[#261331] to-[#480d5d] ';
+  } else if (G === '희귀') {
+    return ' bg-gradient-to-br from-[#111f2c] to-[#113d5d] ';
+  } else {
+    return 'hidden';
+  }
+};
