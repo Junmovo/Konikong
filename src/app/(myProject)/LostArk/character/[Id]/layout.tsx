@@ -18,7 +18,6 @@ interface LayoutProps {
 export default function Layout({ children, params }: LayoutProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [CharacterInfo, setCharacterInfo] = useState<ICharterProfiles>();
-  // const [CharacterWeapon, setCharacterWeapon] = useState<ICharacterWeapon[]>();
   const decodedId = decodeURIComponent(params.Id);
 
   useEffect(() => {

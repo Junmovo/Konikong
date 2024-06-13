@@ -18,7 +18,7 @@ export function getRandomArrElements<E>(arr: E[]) {
   return arr[getRandomInt(0, len - 1)];
 }
 
-export default function cunkArray(arr: any[], chunkSize: number) {
+export default function chunkArray(arr: any[], chunkSize: number) {
   const resultArray = [];
 
   for (let i = 0; i < arr.length; i += chunkSize) {

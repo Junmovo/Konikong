@@ -4,12 +4,20 @@ interface IInfoBoxProps {
   title?: string;
   contents?: string | number;
   subcontents?: string;
+  color: 'black' | 'gray';
 }
 
-const InfoBox_ver2: React.FC<IInfoBoxProps> = ({ title, contents, subcontents }) => {
+const InfoBox_ver2: React.FC<IInfoBoxProps> = ({ title, contents, subcontents, color }) => {
+  const colorVariants = {
+    black: 'bg-gray-600',
+    gray: 'bg-gray-400',
+  };
+
   return (
-    <div className="flex items-center mb-1">
-      <div className=" bg-gray-600 rounded-lg text-[12px] text-white w-[45px] text-center px-[6px] mr-[5px]">
+    <div className="flex items-center ">
+      <div
+        className={`bg-gray-600 rounded-lg text-[12px] text-white w-[45px] text-center px-[6px] mr-[5px] ${colorVariants[color]}`}
+      >
         {title}
       </div>
       <span className="text-[12px]">{subcontents}</span>
