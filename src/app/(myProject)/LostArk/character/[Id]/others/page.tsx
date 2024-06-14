@@ -1,3 +1,4 @@
+'use client';
 import { ICharterProfiles, ISearchParams } from '@/types/Ark';
 import React, { useEffect, useState } from 'react';
 import instance from '../../../service/service';
