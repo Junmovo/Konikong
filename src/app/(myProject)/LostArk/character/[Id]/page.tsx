@@ -6,6 +6,7 @@ import instance from '../../service/service';
 import cunkArray from '@/lib/utils';
 import ItemSection from '@/components/Layout/Ark_elements/components/Character/ItemSection';
 import ItemSection2 from '@/components/Layout/Ark_elements/components/Character/ItemSection2';
+import NoneContents from '@/components/Layout/Ark_elements/commons/NoneContents';
 
 const CharacterPages = ({ params }: { params: ISearchParams }) => {
   const [CharacterWeapon, setCharacterWeapon] = useState<ICharacterWeapon[]>();
@@ -33,10 +34,8 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
   WeaponValue[0].splice(2, 0, items);
   const WeaponArray = WeaponValue[0].shift();
   WeaponValue[0].push(WeaponArray);
-  const items2 = WeaponValue[1];
-
   return (
-    <div className="grid grid-cols-2 gap-x-2">
+    <div className="grid grid-cols-2 ">
       <div className="">
         {WeaponValue[0]?.map((items, idx) => (
           <ItemSection items={items} key={idx} />

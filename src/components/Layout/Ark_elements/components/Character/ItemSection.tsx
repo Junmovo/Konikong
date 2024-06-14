@@ -3,6 +3,8 @@ import React from 'react';
 import Image from 'next/image';
 import InfoBedge from './InfoBedge';
 import { Qualitycolor, colorGrade } from '@/lib/utils';
+import OthersPage from '@/app/(myProject)/LostArk/character/[Id]/others/page';
+import NoneContents from '../../commons/NoneContents';
 
 interface IItemsSectionProps {
   items: ICharacterWeapon;
@@ -16,7 +18,6 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
     return value;
   });
   const quality = Tooltip.Element_001.value.qualityValue;
-
   const SetLevel = Object.keys(Tooltip)
     .filter((key) => Tooltip[key].type === 'ItemPartBox')
     .map((key) => Tooltip[key]);
@@ -26,13 +27,23 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
 
   let choName: string | undefined;
   let choLevel: string | undefined;
+  let esther: string | undefined;
   let choEffect: string | undefined;
   let choEffect2: string | undefined;
+  let elementValue: string | undefined;
+  if (SetLevel[2]?.value?.Element_001) {
+    elementValue = SetLevel[2].value.Element_001.replace(/<[^>]*>/g, '').split(' ')[1];
+  }
   if (indentstring.length > 1) {
     const Level = indentstring[0].value.Element_000;
     const Share = indentstring[1].value.Element_000;
     //장비초월 한사람들
     choLevel = Level.topStr
+      .replace(/<\/?FONT[^>]*>/gi, '')
+      .replace(/<img[^>]*>/gi, '')
+      .replace(/<\/img[^>]*>/gi, '')
+      .split(' ');
+    esther = Share.topStr
       .replace(/<\/?FONT[^>]*>/gi, '')
       .replace(/<img[^>]*>/gi, '')
       .replace(/<\/img[^>]*>/gi, '')
@@ -50,14 +61,11 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
       .replace(/<[^>]*>/g, '')
       .replace(/\[.*?\]/g, '');
   }
-  console.log(choLevel);
-
-  let elementValue = SetLevel[2].value.Element_001.replace(/<[^>]*>/g, '').split(' ')[1];
 
   return (
-    <div className="flex  gap-2 mb-4 p-[10px]">
+    <div className="flex gap-3 mb-2 p-[10px]">
       <div>
-        <div className={`relative w-[40px] h-[40px] rounded-sm ${colorGrade(items.Grade)}`}>
+        <div className={`relative w-[45px] h-[45px] rounded-sm ${colorGrade(items.Grade)}`}>
           <Image src={items.Icon} fill alt="아이템" />
         </div>
         <div className={` text-white text-[12px] text-center rounded-full mt-1  ${Qualitycolor(quality)} `}>
@@ -66,17 +74,7 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
       </div>
 
       <div className="">
-        <div className="font-semibold">{items.Name}</div>
-        <div className="flex gap-1 mb-[5px]">
-          <InfoBedge contents={elementValue} grade="level" />
-          {choEffect2 && items.Type !== '무기' && (
-            <>
-              <InfoBedge contents={choEffect} grade="defalt" />
-              <InfoBedge contents={choEffect2} grade="defalt" />
-            </>
-          )}
-        </div>
-        <div className="flex items-center">
+        <div className="flex">
           {choLevel && (
             <>
               <div className="w-[18px] h-[17px] relative">
@@ -86,8 +84,27 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
                   alt="초월"
                 />
               </div>
-              <span className="text-[12px] font-semibold">{choLevel[2]}</span>
-              <InfoBedge contents={choLevel[1]} grade="defalt" />
+              {items.Grade === '에스더' ? (
+                <>
+                  <span className="text-[12px] font-semibold mx-1">{esther?.[2]}</span>
+                  <span className="text-[12px]">{esther?.[1]}</span>
+                </>
+              ) : (
+                <>
+                  <span className="text-[12px] font-semibold mx-1">{choLevel[2]}</span>
+                  <span className="text-[12px] ">{choLevel[1]}</span>
+                </>
+              )}
+            </>
+          )}
+        </div>
+        <div className="font-semibold mb-[5px]">{items.Name}</div>
+        <div className="flex gap-1 mb-[3px]">
+          <InfoBedge contents={elementValue} grade="level" />
+          {choEffect2 && items.Type !== '무기' && (
+            <>
+              <InfoBedge contents={choEffect} grade="defalt" />
+              <InfoBedge contents={choEffect2} grade="defalt" />
             </>
           )}
         </div>

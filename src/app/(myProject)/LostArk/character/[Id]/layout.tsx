@@ -52,7 +52,7 @@ export default function Layout({ children, params }: LayoutProps) {
         <ArkPadding>
           <div className="flex gap-5 mt-10">
             <CharacterPage CharacterInfo={CharacterInfo} decodedId={decodedId} />
-            <CharactersMenu>{children}</CharactersMenu>
+            <CharactersMenu decodedId={decodedId}>{children}</CharactersMenu>
           </div>
         </ArkPadding>
       </div>

@@ -82,7 +82,7 @@ export const colorGrade = (G: string) => {
   } else if (G === '유물') {
     return ' bg-gradient-to-br from-[#341a09] to-[#a24006] ';
   } else if (G === '전설') {
-    return ' bg-gradient-to-135deg from-[#362003] to-[#9e5f04] ';
+    return ' bg-gradient-to-br from-[#362003] to-[#9e5f04] ';
   } else if (G === '영웅') {
     return ' bg-gradient-to-br from-[#261331] to-[#480d5d] ';
   } else if (G === '희귀') {
