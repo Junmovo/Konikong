@@ -3,8 +3,6 @@ import React from 'react';
 import Image from 'next/image';
 import InfoBedge from './InfoBedge';
 import { Qualitycolor, colorGrade } from '@/lib/utils';
-import OthersPage from '@/app/(myProject)/LostArk/character/[Id]/others/page';
-import NoneContents from '../../commons/NoneContents';
 
 interface IItemsSectionProps {
   items: ICharacterWeapon;

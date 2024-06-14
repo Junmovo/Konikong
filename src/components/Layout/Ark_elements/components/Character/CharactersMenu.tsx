@@ -1,10 +1,11 @@
 'use client';
 import ItemsPage from '@/app/(myProject)/LostArk/character/[Id]/items/page';
-import OthersPage from '@/app/(myProject)/LostArk/character/[Id]/others/page';
+// import OthersPage from '@/app/(myProject)/LostArk/character/[Id]/others/page';
+import instance from '@/app/(myProject)/LostArk/service/service';
 import { cn } from '@/lib/utils';
-import { useRouter } from 'next/navigation';
-import { title } from 'process';
-import React, { useState } from 'react';
+import { ICharterInfo, ICharterProfiles } from '@/types/Ark';
+import React, { useEffect, useState } from 'react';
+import OthersPage from './Characters_others';
 
 interface ICharactersMenu {
   children: React.ReactNode;
@@ -13,6 +14,20 @@ interface ICharactersMenu {
 
 const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
   const [selectedTab, setSelectedTab] = useState('');
+  const [OtherCharacter, setOtherCharacter] = useState<ICharterInfo[] | undefined>();
+
+  useEffect(() => {
+    const getAPIData = async () => {
+      try {
+        const { data } = await instance.get(`/characters/${decodedId}/siblings`);
+
+        setOtherCharacter(data);
+      } catch (error) {
+        console.error('데이터를 받아오지 못했습니다.');
+      }
+    };
+    getAPIData();
+  }, [decodedId]);
 
   const TabMenu = [
     { Title: '메인', Load: '' },
@@ -48,7 +63,7 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
         <div className=" mt-3 bg-white shadow-[0_2px_30px_0_rgba(0,0,0,.06)] rounded-lg">
           {selectedTab === '' && children}
           {selectedTab === 'items' && <ItemsPage />}
-          {selectedTab === 'Others' && <OthersPage decodedId={decodedId} />}
+          {selectedTab === 'Others' && <OthersPage OtherCharacter={OtherCharacter} />}
         </div>
       </div>
     </>
