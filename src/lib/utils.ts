@@ -88,6 +88,6 @@ export const colorGrade = (G: string) => {
   } else if (G === '희귀') {
     return ' bg-gradient-to-br from-[#111f2c] to-[#113d5d] ';
   } else {
-    return 'hidden';
+    return 'bg-gradient-to-br from-[#0c2e2c] to-[#2faba8]';
   }
 };
