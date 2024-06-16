@@ -101,8 +101,8 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
           <InfoBedge contents={elementValue} grade="level" />
           {choEffect2 && items.Type !== '무기' && (
             <>
-              <InfoBedge contents={choEffect} grade="defalt" />
-              <InfoBedge contents={choEffect2} grade="defalt" />
+              <InfoBedge contents={choEffect} grade="default" />
+              <InfoBedge contents={choEffect2} grade="default" />
             </>
           )}
         </div>

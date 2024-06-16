@@ -91,3 +91,59 @@ export const colorGrade = (G: string) => {
     return 'bg-gradient-to-br from-[#0c2e2c] to-[#2faba8]';
   }
 };
+
+export const ImgClass = (Class: string) => {
+  if (Class === '워로드') {
+    return '/images/Lostark/Class/warload.png';
+  } else if (Class === '버서커') {
+    return '/images/Lostark/Class/berserker.png';
+  } else if (Class === '홀리나이트') {
+    return '/images/Lostark/Class/holyknight.png';
+  } else if (Class === '디스트로이어') {
+    return '/images/Lostark/Class/destroyer.png';
+  } else if (Class === '배틀마스터') {
+    return '/images/Lostark/Class/battlemaster.png';
+  } else if (Class === '인파이터') {
+    return '/images/Lostark/Class/infighter.png';
+  } else if (Class === '기공사') {
+    return '/images/Lostark/Class/soulMaster.png';
+  } else if (Class === '창술사') {
+    return '/images/Lostark/Class/LanceMaster.png';
+  } else if (Class === '데빌헌터') {
+    return '/images/Lostark/Class/devil.png';
+  } else if (Class === '호크아이') {
+    return '/images/Lostark/Class/hawkeye.png';
+  } else if (Class === '스카우터') {
+    return '/images/Lostark/Class/scouter.png';
+  } else if (Class === '블래스터') {
+    return '/images/Lostark/Class/blaster.png';
+  } else if (Class === '건슬링어') {
+    return '/images/Lostark/Class/gunsel.png';
+  } else if (Class === '데모닉') {
+    return '/images/Lostark/Class/demonic.png';
+  } else if (Class === '블레이드') {
+    return '/images/Lostark/Class/blade.png';
+  } else if (Class === '리퍼') {
+    return '/images/Lostark/Class/repper.png';
+  } else if (Class === '소울이터') {
+    return '/images/Lostark/Class/soul.png';
+  } else if (Class === '스트라이커') {
+    return '/images/Lostark/Class/striker.png';
+  } else if (Class === '바드') {
+    return '/images/Lostark/Class/bard.png';
+  } else if (Class === '서머너') {
+    return '/images/Lostark/Class/summoner.png';
+  } else if (Class === '아르카나') {
+    return '/images/Lostark/Class/arcana.png';
+  } else if (Class === '소서리스') {
+    return '/images/Lostark/Class/sorceress.png';
+  } else if (Class === '브레이커') {
+    return '/images/Lostark/Class/breaker.png';
+  } else if (Class === '기상술사') {
+    return '/images/Lostark/Class/aeromancer.png';
+  } else if (Class === '도화가') {
+    return '/images/Lostark/Class/artist.png';
+  } else {
+    return '/images/Lostark/Class/default.png';
+  }
+};

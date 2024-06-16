@@ -7,6 +7,7 @@ import cunkArray from '@/lib/utils';
 import ItemSection from '@/components/Layout/Ark_elements/components/Character/ItemSection';
 import ItemSection2 from '@/components/Layout/Ark_elements/components/Character/ItemSection2';
 import NoneContents from '@/components/Layout/Ark_elements/commons/NoneContents';
+import ItemSection3 from '@/components/Layout/Ark_elements/components/Character/ItemSection3';
 
 const CharacterPages = ({ params }: { params: ISearchParams }) => {
   const [CharacterWeapon, setCharacterWeapon] = useState<ICharacterWeapon[]>();
@@ -34,24 +35,29 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
   WeaponValue[0].splice(2, 0, items);
   const WeaponArray = WeaponValue[0].shift();
   WeaponValue[0].push(WeaponArray);
+
   return (
-    <div className="grid grid-cols-2 ">
-      <div className="">
-        {WeaponValue[0]?.map((items, idx) => (
-          <ItemSection items={items} key={idx} />
-        ))}
+    <>
+      <div className="grid grid-cols-2 ">
+        <div className="">
+          {WeaponValue[0]?.map((items, idx) => (
+            <ItemSection items={items} key={idx} />
+          ))}
+        </div>
+        <div className="">
+          {WeaponValue[1]?.map((items, idx) => (
+            <ItemSection2 items={items} key={idx} />
+          ))}
+        </div>
       </div>
       <div className="">
-        {WeaponValue[1]?.map((items, idx) => (
-          <ItemSection2 items={items} key={idx} />
-        ))}
+        {WeaponValue[2]?.map((items, idx) => {
+          if (idx === 0) {
+            return <ItemSection3 items={items} key={idx} />;
+          }
+        })}
       </div>
-      {/* <div className="">
-        {WeaponValue[2]?.map((items, idx) => (
-          <ItemSection items={items} key={idx} />
-        ))}
-      </div> */}
-    </div>
+    </>
   );
 };
 

@@ -63,7 +63,7 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
         <div className=" mt-3 bg-white shadow-[0_2px_30px_0_rgba(0,0,0,.06)] rounded-lg">
           {selectedTab === '' && children}
           {selectedTab === 'items' && <ItemsPage />}
-          {selectedTab === 'Others' && <OthersPage OtherCharacter={OtherCharacter} />}
+          {selectedTab === 'Others' && <OthersPage OtherCharacter={OtherCharacter} decodedId={decodedId} />}
         </div>
       </div>
     </>

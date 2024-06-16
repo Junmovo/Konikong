@@ -8,7 +8,7 @@ const colorBedge: { [key: string]: string } = {
   level: ' bg-gray-100 border-gray-100',
   plus: ' bg-slate-100 text-[#425ad5]',
   minus: ' bg-red-50 text-[#dc6b6b]',
-  defalt: 'border',
+  default: 'border',
 };
 
 const InfoBedge: React.FC<InfoBedgeProps> = ({ contents, grade }) => {
