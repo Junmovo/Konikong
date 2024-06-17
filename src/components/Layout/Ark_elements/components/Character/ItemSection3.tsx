@@ -3,12 +3,18 @@ import React from 'react';
 import Image from 'next/image';
 import InfoBedge from './InfoBedge';
 import { Qualitycolor, colorGrade } from '@/lib/utils';
+import NoneContents from '../../commons/NoneContents';
+import Characters_Skeleton from './SkeletonUnder';
 
 interface IItemsSectionProps {
   items: ICharacterWeapon;
 }
 
 const ItemSection3: React.FC<IItemsSectionProps> = ({ items }) => {
+  if (!items.Name.includes('팔찌')) {
+    return null;
+  }
+
   const Tooltip = JSON.parse(items.Tooltip, (key, value) => {
     if (key.startsWith('Element_01') && parseInt(key.substring(8)) >= 14) {
       return undefined;
@@ -22,11 +28,7 @@ const ItemSection3: React.FC<IItemsSectionProps> = ({ items }) => {
   const indentstring = Object.keys(Tooltip)
     .filter((key) => Tooltip[key].type === 'IndentStringGroup')
     .map((key) => Tooltip[key]);
-  console.log(Tooltip);
 
-  let elementValue: string | undefined;
-  let OtherValue: string | undefined | null;
-  let OtherValue2: string | undefined | null;
   let extractedPatterns1: string[] = [];
   let extractedPatterns2: string[] = [];
 
@@ -40,7 +42,6 @@ const ItemSection3: React.FC<IItemsSectionProps> = ({ items }) => {
     extractedPatterns1 = SetLevel[0].value.Element_001.match(pattern) || [];
     extractedPatterns2 = SetLevel[0].value.Element_001.match(pattern2) || [];
   }
-
   return (
     <div className="flex gap-3 mb-2 p-[10px]">
       <div>

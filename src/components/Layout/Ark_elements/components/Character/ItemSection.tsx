@@ -22,12 +22,40 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
   const indentstring = Object.keys(Tooltip)
     .filter((key) => Tooltip[key].type === 'IndentStringGroup')
     .map((key) => Tooltip[key]);
+  const upgrade = Object.keys(Tooltip)
+    .filter((key) => Tooltip[key].type === 'SingleTextBox')
+    .map((key) => Tooltip[key]);
 
-  let choName: string | undefined;
+  let containsKeyword: string | undefined;
+  for (let i = 0; i < upgrade.length; i++) {
+    if (upgrade[i].value.includes('[상급 재련]')) {
+      containsKeyword = upgrade[i].value;
+      break;
+    }
+  }
+  containsKeyword = containsKeyword?.replace(/<[^>]*>/g, '');
+
+  let Elericser_Effect1: string | undefined;
+  let Elericser_Effect2: string | undefined;
+  let choLeveling: string | undefined;
+  for (let i = 0; i < indentstring.length; i++) {
+    if (indentstring[i]?.value?.Element_000.topStr.includes('엘릭서 효과')) {
+      Elericser_Effect1 = indentstring[i].value.Element_000.contentStr.Element_000.contentStr;
+      Elericser_Effect2 = indentstring[i].value.Element_000.contentStr.Element_001.contentStr;
+      break;
+    } else if (indentstring[i]?.value?.Element_000.topStr.includes('[초월]')) {
+      choLeveling = indentstring[i]?.value?.Element_000.topStr;
+    }
+  }
+  const e_Effect1 = Elericser_Effect1?.split('<br>')[0]
+    .replace(/<[^>]*>/g, '')
+    .replace(/\[.*?\]/g, '');
+  const e_Effect2 = Elericser_Effect2?.split('<br>')[0]
+    .replace(/<[^>]*>/g, '')
+    .replace(/\[.*?\]/g, '');
+
   let choLevel: string | undefined;
   let esther: string | undefined;
-  let choEffect: string | undefined;
-  let choEffect2: string | undefined;
   let elementValue: string | undefined;
   if (SetLevel[2]?.value?.Element_001) {
     elementValue = SetLevel[2].value.Element_001.replace(/<[^>]*>/g, '').split(' ')[1];
@@ -46,18 +74,6 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
       .replace(/<img[^>]*>/gi, '')
       .replace(/<\/img[^>]*>/gi, '')
       .split(' ');
-    //엘릭서부여
-    choName = Share.topStr.replace(/<[^>]*>/g, '').split('<br>'); // 엘릭서이름
-    // 부여앞
-    choEffect = Share.contentStr.Element_000.contentStr
-      .split('<br>')[0]
-      .replace(/<[^>]*>/g, '')
-      .replace(/\[.*?\]/g, '');
-    //부여뒤
-    choEffect2 = Share.contentStr.Element_001?.contentStr
-      .split('<br>')[0]
-      .replace(/<[^>]*>/g, '')
-      .replace(/\[.*?\]/g, '');
   }
 
   return (
@@ -72,8 +88,8 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
       </div>
 
       <div className="">
-        <div className="flex">
-          {choLevel && (
+        <div className="flex items-center">
+          {choLeveling && (
             <>
               <div className="w-[18px] h-[17px] relative">
                 <Image
@@ -89,22 +105,19 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
                 </>
               ) : (
                 <>
-                  <span className="text-[12px] font-semibold mx-1">{choLevel[2]}</span>
-                  <span className="text-[12px] ">{choLevel[1]}</span>
+                  <span className="text-[12px] font-semibold mx-1">{choLevel?.[2]}</span>
+                  <span className="text-[12px] ">{choLevel?.[1]}</span>
                 </>
               )}
             </>
           )}
+          {containsKeyword ? <span className="text-[12px] ml-2 ">{containsKeyword}</span> : null}
         </div>
         <div className="font-semibold mb-[5px]">{items.Name}</div>
         <div className="flex gap-1 mb-[3px]">
           <InfoBedge contents={elementValue} grade="level" />
-          {choEffect2 && items.Type !== '무기' && (
-            <>
-              <InfoBedge contents={choEffect} grade="default" />
-              <InfoBedge contents={choEffect2} grade="default" />
-            </>
-          )}
+          {e_Effect1 ? <InfoBedge contents={e_Effect1} grade="default" /> : null}
+          {e_Effect2 ? <InfoBedge contents={e_Effect2} grade="default" /> : null}
         </div>
       </div>
     </div>

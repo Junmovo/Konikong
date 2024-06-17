@@ -6,6 +6,8 @@ import { cn } from '@/lib/utils';
 import { ICharterInfo, ICharterProfiles } from '@/types/Ark';
 import React, { useEffect, useState } from 'react';
 import OthersPage from './Characters_others';
+import Characters_gems from './Characters_gems';
+import ArkWhiteBox from '../../ArkWhiteBox';
 
 interface ICharactersMenu {
   children: React.ReactNode;
@@ -32,7 +34,7 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
   const TabMenu = [
     { Title: '메인', Load: '' },
     { Title: '아바타', Load: 'avoater' },
-    { Title: '부캐', Load: 'Others' },
+    { Title: '다른 캐릭터', Load: 'Others' },
   ];
 
   const onChangeTab = (L: string) => () => {
@@ -60,11 +62,12 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
             ))}
           </ul>
         </div>
-        <div className=" mt-3 bg-white shadow-[0_2px_30px_0_rgba(0,0,0,.06)] rounded-lg">
+        <ArkWhiteBox>
           {selectedTab === '' && children}
           {selectedTab === 'items' && <ItemsPage />}
           {selectedTab === 'Others' && <OthersPage OtherCharacter={OtherCharacter} decodedId={decodedId} />}
-        </div>
+        </ArkWhiteBox>
+        <div>{selectedTab === '' && <Characters_gems decodedId={decodedId} />}</div>
       </div>
     </>
   );

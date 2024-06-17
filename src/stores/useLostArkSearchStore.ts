@@ -14,7 +14,7 @@ interface LostarkState {
 
 const getAPIData = async (item: string) => {
   try {
-    const { data } = await instance.get(`https://developer-lostark.game.onstove.com/characters/${item}/siblings`);
+    const { data } = await instance.get(`/characters/${item}/siblings`);
     return data;
   } catch (error) {
     console.error('데이터를 받아오지 못했습니다.');
@@ -46,7 +46,7 @@ const useLostArkSearchStore = create<LostarkState>()(
               return { favorites: filtering };
             } else {
               if (state.favorites.length > 7) {
-                alert('최대 7');
+                alert('즐겨찾기는 최대 7개 까지만 가능합니다.');
                 // state.favorites.pop();
                 return { favorites: [...state.favorites] };
               }
@@ -79,7 +79,6 @@ const useLostArkSearchStore = create<LostarkState>()(
 
           set((state) => {
             const existingIndex = state.searchValue.findIndex((el) => el.name === item);
-            console.log(existingIndex);
             if (existingIndex !== -1) {
               const newList = [...state.searchValue];
               newList.splice(existingIndex, 1);

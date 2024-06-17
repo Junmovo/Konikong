@@ -101,6 +101,8 @@ export const ImgClass = (Class: string) => {
     return '/images/Lostark/Class/holyknight.png';
   } else if (Class === '디스트로이어') {
     return '/images/Lostark/Class/destroyer.png';
+  } else if (Class === '슬레이어') {
+    return '/images/Lostark/Class/slayer.png';
   } else if (Class === '배틀마스터') {
     return '/images/Lostark/Class/battlemaster.png';
   } else if (Class === '인파이터') {

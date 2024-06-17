@@ -69,7 +69,7 @@ export default function SearchBar({ header, main }: ISearchBarProps) {
 
   return (
     <div>
-      <div className={cn('relative', header ? 'w-[300px]' : 'w-[480px]', main ? 'hidden' : 'block')}>
+      <div className={cn('relative', header ? 'w-[350px]' : 'w-[480px]', main ? 'hidden' : 'block')}>
         <form action={`/LostArk/character/${SearchValue}`}>
           <input
             type="text"

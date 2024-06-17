@@ -20,7 +20,7 @@ const OthersPage = ({ OtherCharacter, decodedId }: IOthersPage) => {
   const sortedResult = result ? Object.entries(result).sort((a, b) => b[1].length - a[1].length) : [];
 
   return (
-    <div className="p-5 ">
+    <div className=" ">
       {sortedResult.map(([serverName, characters]) => (
         <>
           <div key={serverName} className="flex items-center justify-between mb-3">

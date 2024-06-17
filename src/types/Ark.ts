@@ -85,3 +85,25 @@ export interface ISearchLogValueProps {
   onClickRemove: (v: string) => (e: MouseEvent<HTMLDivElement>) => void;
   key: number;
 }
+
+export interface IGem {
+  Slot: number;
+  Name: string;
+  Icon: string;
+  Level: number;
+  Grade: string;
+  Tooltip: string;
+}
+
+export interface IEffect {
+  GemSlot: number;
+  Name: string;
+  Description: string;
+  Icon: string;
+  Tooltip: string;
+}
+
+export interface ICharacterGems {
+  Gems: IGem[];
+  Effects: IEffect[];
+}

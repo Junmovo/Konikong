@@ -8,6 +8,7 @@ import ItemSection from '@/components/Layout/Ark_elements/components/Character/I
 import ItemSection2 from '@/components/Layout/Ark_elements/components/Character/ItemSection2';
 import NoneContents from '@/components/Layout/Ark_elements/commons/NoneContents';
 import ItemSection3 from '@/components/Layout/Ark_elements/components/Character/ItemSection3';
+import ItemSectionUnder from '@/components/Layout/Ark_elements/components/Character/ItemSectionUnder';
 
 const CharacterPages = ({ params }: { params: ISearchParams }) => {
   const [CharacterWeapon, setCharacterWeapon] = useState<ICharacterWeapon[]>();
@@ -16,9 +17,7 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
   useEffect(() => {
     const getAPIData = async () => {
       try {
-        const { data } = await instance.get(
-          `https://developer-lostark.game.onstove.com/armories/characters/${decodedId}/equipment`
-        );
+        const { data } = await instance.get(`/armories/characters/${decodedId}/equipment`);
         setCharacterWeapon(data);
       } catch (error) {
         console.error('데이터를 받아오지 못했습니다.');
@@ -38,7 +37,7 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
 
   return (
     <>
-      <div className="grid grid-cols-2 ">
+      <div className="grid grid-cols-2  border-b-[1px] ">
         <div className="">
           {WeaponValue[0]?.map((items, idx) => (
             <ItemSection items={items} key={idx} />
@@ -50,12 +49,15 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
           ))}
         </div>
       </div>
-      <div className="">
-        {WeaponValue[2]?.map((items, idx) => {
-          if (idx === 0) {
-            return <ItemSection3 items={items} key={idx} />;
-          }
-        })}
+      <div className="grid grid-cols-2 w-full pt-[10px]">
+        <div className="">
+          {WeaponValue[2]?.map((items, idx) => {
+            if (idx === 0) {
+              return <ItemSection3 items={items} key={idx} />;
+            }
+          })}
+        </div>
+        <ItemSectionUnder items={WeaponValue[0][0]} />
       </div>
     </>
   );
