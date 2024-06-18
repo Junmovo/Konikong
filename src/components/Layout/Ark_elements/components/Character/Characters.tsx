@@ -49,22 +49,6 @@ const Characters: React.FC<IInfoProps> = ({ CharacterInfo, decodedId }) => {
               </div>
             </div>
           </div>
-          {/* <div className="bg-white shadow-[0_2px_30px_0_rgba(0,0,0,.06)] rounded-lg mt-5">
-              <div>
-                <div className="text-gray-500">상세정보</div>
-                <p> PVP :{CharacterInfo.PvpGradeName} </p>
-                <p>
-                  영지:{CharacterInfo.TownLevel} {CharacterInfo.TownName}
-                </p>
-                <p> 칭호 :{CharacterInfo.Title} </p>
-                <p> 길드 :{CharacterInfo.GuildName} </p>
-              </div>
-            </div> */}
-          {/* <div className="flex gap-4">
-            <InfoBox title={'아이템'} contents={CharacterInfo.ItemAvgLevel} />
-            <InfoBox title={'원정대'} contents={CharacterInfo.ExpeditionLevel} />
-            <InfoBox title={'전투'} contents={CharacterInfo.CharacterLevel} subcontents="Lv." />
-          </div> */}
         </div>
       </div>
     </div>

@@ -20,12 +20,15 @@ export interface ICharterProfiles extends ICharterInfo {
   GuildName: string;
   UsingSkillPoint: number;
   TotalSkillPoint: number;
-  Stats: {
-    Type: string;
-    Value: string;
-    Tooltip: string;
-  };
+  Stats: ICharacterStats[];
 }
+
+export interface ICharacterStats {
+  Type: string;
+  Value: string;
+  Tooltip: string;
+}
+
 export interface ICharacterWeapon {
   Type: string;
   Name: string;
@@ -106,4 +109,22 @@ export interface IEffect {
 export interface ICharacterGems {
   Gems: IGem[];
   Effects: IEffect[];
+}
+
+export interface IEngravings {
+  Slot: number;
+  Name: string;
+  Icon: string;
+  Tooltip: string;
+}
+
+export interface IEngravingsEffect {
+  Icon: string;
+  Name: string;
+  Description: string;
+}
+
+export interface ICharacterEngravings {
+  Engravings: IEngravings[];
+  Effects: IEngravingsEffect[];
 }

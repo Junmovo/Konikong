@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react';
 import OthersPage from './Characters_others';
 import Characters_gems from './Characters_gems';
 import ArkWhiteBox from '../../ArkWhiteBox';
+import Characters_power from './Characters_power';
 
 interface ICharactersMenu {
   children: React.ReactNode;
@@ -68,6 +69,7 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
           {selectedTab === 'Others' && <OthersPage OtherCharacter={OtherCharacter} decodedId={decodedId} />}
         </ArkWhiteBox>
         <div>{selectedTab === '' && <Characters_gems decodedId={decodedId} />}</div>
+        <div> {selectedTab === '' && <Characters_power decodedId={decodedId} />}</div>
       </div>
     </>
   );
