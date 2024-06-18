@@ -3,12 +3,10 @@ import instance from '@/app/(myProject)/LostArk/service/service';
 import { ICharacterGems, ICharacterStats, ICharterProfiles, IGem } from '@/types/Ark';
 import React, { useEffect, useState } from 'react';
 import ArkWhiteBox from '../../ArkWhiteBox';
-import Image from 'next/image';
-import { colorGrade } from '@/lib/utils';
-import InfoBedge from './InfoBedge';
-import SkeletonGems from './SkeletonGems';
 import Characters_Engravings from './Characters_Engravings';
 import Character_stats from './Character_stats';
+import NoneContents from '../../commons/NoneContents';
+import Character_tenden from './Character_tenden';
 interface ICharactersPower {
   decodedId: string;
 }
@@ -27,14 +25,13 @@ const Characters_power = ({ decodedId }: ICharactersPower) => {
     };
     getAPIData();
   }, [decodedId]);
-
+  if (!CharacterPower?.Stats) return <NoneContents contents="아직 미생성된 캐릭터입니다." />;
   const index = CharacterPower?.Stats.slice(-2);
-  console.log(index);
 
   return (
     <div className="grid grid-cols-2 gap-4">
       <ArkWhiteBox>
-        <div className="font-bold text-[20px] mb-3">전투효과</div>
+        <div className="font-bold text-[20px] mb-4">전투효과</div>
 
         <div className=" border-b-[1px] grid grid-cols-2 mb-2">
           {index?.map((el: ICharacterStats, idx: number) => (
@@ -47,6 +44,11 @@ const Characters_power = ({ decodedId }: ICharactersPower) => {
             .map((el: ICharacterStats, idx: number) => (
               <Character_stats key={idx} Stats={el} top={false} />
             ))}
+        </div>
+        <div className="grid grid-cols-2 gap-2 bg-slate-50 rounded-lg mt-2 p-2">
+          {CharacterPower.Tendencies.map((tenden, idx) => (
+            <Character_tenden tenden={tenden} key={idx} />
+          ))}
         </div>
       </ArkWhiteBox>
       <ArkWhiteBox>

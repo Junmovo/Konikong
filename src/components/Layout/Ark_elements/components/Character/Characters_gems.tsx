@@ -55,10 +55,11 @@ const Characters_gems = ({ decodedId }: ICharactersGems) => {
       return hong.push(el);
     }
   });
+  if (CharacterGems === null) return null;
 
   return (
     <ArkWhiteBox>
-      <div className="flex justify-between mb-3">
+      <div className="flex justify-between mb-4">
         <div className="flex  items-center">
           <div className="font-bold text-[20px]">보석</div>
           <div className="ml-[5px]">
@@ -69,10 +70,10 @@ const Characters_gems = ({ decodedId }: ICharactersGems) => {
           className="bg-gray-100 px-[10px] cursor-pointer items-center rounded-sm text-[12px] flex"
           onClick={onClickMore}
         >
-          더보기
+          {CharacterGems && selectedTab ? '닫기' : '더보기'}
         </span>
       </div>
-      {!CharacterGems ? (
+      {CharacterGems?.Gems === undefined ? (
         <div className="flex justify-between">
           {Array.from({ length: 11 }, (_, idx) => (
             <SkeletonGems key={idx} />

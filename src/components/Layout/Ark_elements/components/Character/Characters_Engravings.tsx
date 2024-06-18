@@ -4,11 +4,11 @@ import { ICharacterEngravings, IEngravings, IEngravingsEffect } from '@/types/Ar
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import InfoBedge from './InfoBedge';
+import NoneContents from '../../commons/NoneContents';
 interface ICharacterEngravingsProps {
   decodedId: string;
 }
 const Characters_Engravings = ({ decodedId }: ICharacterEngravingsProps) => {
-  const [selectedTab, setSelectedTab] = useState<boolean>(false);
   const [CharacterEngravings, setCharacterEngravings] = useState<ICharacterEngravings | undefined>();
 
   useEffect(() => {
@@ -37,27 +37,29 @@ const Characters_Engravings = ({ decodedId }: ICharacterEngravingsProps) => {
 
   return (
     <div className="">
-      <div className="flex justify-between mb-3">
+      <div className="flex justify-between mb-4">
         <div className="font-bold text-[20px]">각인효과</div>
         <div className="flex items-center justify-center gap-2">
-          {CharacterEngravings?.Engravings.map((el: IEngravings, idx: number) => (
-            <div key={idx} className="flex items-center">
-              <div className="font-semibold text-[14px]">
-                <span className="text-[12px]">{el.Name}</span>
-                {el.Tooltip &&
-                  `+${
-                    JSON.parse(el.Tooltip)
-                      ?.Element_001?.value?.leftText.replace(/<[^>]*>/g, '')
-                      .split('+')[1]
-                  }`}
-              </div>
-            </div>
-          ))}
+          {CharacterEngravings
+            ? CharacterEngravings?.Engravings?.map((el: IEngravings, idx: number) => (
+                <div key={idx} className="flex items-center">
+                  <div className="font-semibold text-[14px] flex gap-1 items-center">
+                    <span className="text-[12px]">{el.Name}</span>
+                    {el.Tooltip &&
+                      `+${
+                        JSON.parse(el.Tooltip)
+                          ?.Element_001?.value?.leftText.replace(/<[^>]*>/g, '')
+                          .split('+')[1]
+                      }`}
+                  </div>
+                </div>
+              ))
+            : null}
         </div>
       </div>
       <div>
         {CharacterEngravings?.Effects?.map((effect: IEngravingsEffect, idx: number) => (
-          <div key={idx} className="flex items-center gap-3 mb-[5px]">
+          <div key={idx} className="flex items-center gap-3 mb-[10px]">
             <div className="relative w-[40px] h-[40px] rounded-sm overflow-hidden">
               <Image src={effect.Icon} fill alt={effect.Name} />
             </div>

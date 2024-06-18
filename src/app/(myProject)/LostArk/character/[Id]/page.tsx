@@ -9,6 +9,7 @@ import ItemSection2 from '@/components/Layout/Ark_elements/components/Character/
 import NoneContents from '@/components/Layout/Ark_elements/commons/NoneContents';
 import ItemSection3 from '@/components/Layout/Ark_elements/components/Character/ItemSection3';
 import ItemSectionUnder from '@/components/Layout/Ark_elements/components/Character/ItemSectionUnder';
+import ArkWhiteBox from '@/components/Layout/Ark_elements/ArkWhiteBox';
 
 const CharacterPages = ({ params }: { params: ISearchParams }) => {
   const [CharacterWeapon, setCharacterWeapon] = useState<ICharacterWeapon[]>();
@@ -26,7 +27,7 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
     getAPIData();
   }, [params.Id, decodedId]);
   if (!CharacterWeapon) {
-    return null;
+    return <div></div>;
   }
   const newWeapon = [...CharacterWeapon];
   const WeaponValue = cunkArray(newWeapon, 6);
@@ -36,7 +37,7 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
   WeaponValue[0].push(WeaponArray);
 
   return (
-    <>
+    <ArkWhiteBox>
       <div className="grid grid-cols-2  border-b-[1px] ">
         <div className="">
           {WeaponValue[0]?.map((items, idx) => (
@@ -59,7 +60,7 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
         </div>
         <ItemSectionUnder items={WeaponValue[0][0]} />
       </div>
-    </>
+    </ArkWhiteBox>
   );
 };
 

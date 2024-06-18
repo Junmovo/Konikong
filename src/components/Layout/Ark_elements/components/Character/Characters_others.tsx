@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ImgClass, cn } from '@/lib/utils';
+import ArkWhiteBox from '../../ArkWhiteBox';
 
 interface IOthersPage {
   OtherCharacter?: ICharterInfo[];
@@ -20,7 +21,7 @@ const OthersPage = ({ OtherCharacter, decodedId }: IOthersPage) => {
   const sortedResult = result ? Object.entries(result).sort((a, b) => b[1].length - a[1].length) : [];
 
   return (
-    <div className=" ">
+    <ArkWhiteBox>
       {sortedResult.map(([serverName, characters]) => (
         <>
           <div key={serverName} className="flex items-center justify-between mb-3">
@@ -52,7 +53,7 @@ const OthersPage = ({ OtherCharacter, decodedId }: IOthersPage) => {
           </div>
         </>
       ))}
-    </div>
+    </ArkWhiteBox>
   );
 };
 

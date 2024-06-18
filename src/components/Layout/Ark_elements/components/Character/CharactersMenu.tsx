@@ -9,6 +9,7 @@ import OthersPage from './Characters_others';
 import Characters_gems from './Characters_gems';
 import ArkWhiteBox from '../../ArkWhiteBox';
 import Characters_power from './Characters_power';
+import Characters_Card from './Characters_Card';
 
 interface ICharactersMenu {
   children: React.ReactNode;
@@ -33,9 +34,9 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
   }, [decodedId]);
 
   const TabMenu = [
-    { Title: '메인', Load: '' },
+    { Title: '능력치', Load: '' },
     { Title: '아바타', Load: 'avoater' },
-    { Title: '다른 캐릭터', Load: 'Others' },
+    { Title: '보유 캐릭터', Load: 'Others' },
   ];
 
   const onChangeTab = (L: string) => () => {
@@ -63,13 +64,12 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
             ))}
           </ul>
         </div>
-        <ArkWhiteBox>
-          {selectedTab === '' && children}
-          {selectedTab === 'items' && <ItemsPage />}
-          {selectedTab === 'Others' && <OthersPage OtherCharacter={OtherCharacter} decodedId={decodedId} />}
-        </ArkWhiteBox>
+        {selectedTab === '' && children}
+        {selectedTab === 'items' && <ItemsPage />}
+        {selectedTab === 'Others' && <OthersPage OtherCharacter={OtherCharacter} decodedId={decodedId} />}
         <div>{selectedTab === '' && <Characters_gems decodedId={decodedId} />}</div>
-        <div> {selectedTab === '' && <Characters_power decodedId={decodedId} />}</div>
+        <div>{selectedTab === '' && <Characters_power decodedId={decodedId} />}</div>
+        <div>{selectedTab === '' && <Characters_Card decodedId={decodedId} />}</div>
       </div>
     </>
   );

@@ -21,12 +21,18 @@ export interface ICharterProfiles extends ICharterInfo {
   UsingSkillPoint: number;
   TotalSkillPoint: number;
   Stats: ICharacterStats[];
+  Tendencies: ITendencies[];
 }
 
 export interface ICharacterStats {
   Type: string;
   Value: string;
   Tooltip: string;
+}
+export interface ITendencies {
+  Type: string;
+  Point: number;
+  MaxPoint: number;
 }
 
 export interface ICharacterWeapon {
@@ -107,6 +113,7 @@ export interface IEffect {
 }
 
 export interface ICharacterGems {
+  length: number;
   Gems: IGem[];
   Effects: IEffect[];
 }
@@ -127,4 +134,29 @@ export interface IEngravingsEffect {
 export interface ICharacterEngravings {
   Engravings: IEngravings[];
   Effects: IEngravingsEffect[];
+}
+
+export interface ICharacterCardsName {
+  Slot: number;
+  Name: string;
+  Icon: string;
+  AwakeCount: number;
+  AwakeTotal: number;
+  Grade: string;
+  Tooltip: string;
+}
+
+export interface ICharacterCardsEffects {
+  Index: number;
+  CardSlots: number[];
+  Items: ICharacterCardsEffectsItems[];
+}
+export interface ICharacterCardsEffectsItems {
+  Name: string;
+  Description: string;
+}
+
+export interface ICharacterCards {
+  Cards: ICharacterCardsName[];
+  Effects: ICharacterCardsEffects[];
 }

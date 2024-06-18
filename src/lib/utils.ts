@@ -149,3 +149,19 @@ export const ImgClass = (Class: string) => {
     return '/images/Lostark/Class/default.png';
   }
 };
+
+export const ImgStar = (Star: number) => {
+  if (Star === 0) {
+    return '/images/Lostark/Star/star_0.png';
+  } else if (Star === 1) {
+    return '/images/Lostark/Star/star_1.png';
+  } else if (Star === 2) {
+    return '/images/Lostark/Star/star_2.png';
+  } else if (Star === 3) {
+    return '/images/Lostark/Star/star_3.png';
+  } else if (Star === 4) {
+    return '/images/Lostark/Star/star_4.png';
+  } else {
+    return '/images/Lostark/Star/star_5.png';
+  }
+};

@@ -40,8 +40,8 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
   let choLeveling: string | undefined;
   for (let i = 0; i < indentstring.length; i++) {
     if (indentstring[i]?.value?.Element_000.topStr.includes('엘릭서 효과')) {
-      Elericser_Effect1 = indentstring[i].value.Element_000.contentStr.Element_000.contentStr;
-      Elericser_Effect2 = indentstring[i].value.Element_000.contentStr.Element_001.contentStr;
+      Elericser_Effect1 = indentstring[i].value.Element_000.contentStr.Element_000?.contentStr;
+      Elericser_Effect2 = indentstring[i].value.Element_000.contentStr.Element_001?.contentStr;
       break;
     } else if (indentstring[i]?.value?.Element_000.topStr.includes('[초월]')) {
       choLeveling = indentstring[i]?.value?.Element_000.topStr;
