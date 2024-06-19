@@ -8,6 +8,7 @@ import NoticeList from '@/components/Layout/Ark_elements/components/NoticeList';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoIosArrowBack } from 'react-icons/io';
 import ArkPadding from '@/components/Layout/Ark_elements/ArkPadding';
+import ArkWhiteBox from '@/components/Layout/Ark_elements/ArkWhiteBox';
 
 export default function LostArkNotice() {
   const [NoticeInfo, setNoticeInfo] = useState<INoticeInfo[]>([]);
@@ -63,7 +64,7 @@ export default function LostArkNotice() {
 
   return (
     <ArkPadding>
-      <div className="mt-10">
+      <div className="p-10">
         <div className="text-[36px] font-bold mb-[35px]">공지사항</div>
         <div className="pb-[20px] border-b-[2px] border-neutral-500">
           <ul className="flex gap-2">

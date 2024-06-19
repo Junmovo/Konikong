@@ -160,3 +160,43 @@ export interface ICharacterCards {
   Cards: ICharacterCardsName[];
   Effects: ICharacterCardsEffects[];
 }
+
+export interface IDungeons {
+  Name: string;
+  Description: string;
+  MinCharacterLevel: number;
+  MinItemLevel: number;
+  AreaName: string;
+  StartTime: string;
+  EndTime: string;
+  Image: string;
+  RewardItems: IDungeonsItem[];
+}
+
+export interface IDungeonsItem {
+  Name: string;
+  Icon: string;
+  Grade: string;
+  StartTimes: null;
+}
+
+export interface IRaidsItem {
+  Name: string;
+  Description: string;
+  MinCharacterLevel: number;
+  MinItemLevel: number;
+  StartTime: string;
+  EndTime: string;
+  Image: string;
+}
+export interface IRewardItem {
+  Name: string;
+  Icon: string;
+  Grade: string;
+  StartTimes: null;
+}
+
+export interface IRaids {
+  Raids: IRaidsItem[];
+  RewardItems: IRewardItem[];
+}
