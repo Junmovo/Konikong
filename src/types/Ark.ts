@@ -200,3 +200,17 @@ export interface IRaids {
   Raids: IRaidsItem[];
   RewardItems: IRewardItem[];
 }
+
+export interface ICharacterCollect {
+  Type: string;
+  Icon: string;
+  Point: number;
+  MaxPoint: number;
+  CollectiblePoints: [
+    {
+      PointName: string;
+      Point: number;
+      MaxPoint: number;
+    }
+  ];
+}

@@ -9,6 +9,7 @@ import Characters_gems from './Characters_gems';
 import ArkWhiteBox from '../../ArkWhiteBox';
 import Characters_power from './Characters_power';
 import Characters_Card from './Characters_Card';
+import Character_Collect from './Character_Collect';
 
 interface ICharactersMenu {
   children: React.ReactNode;
@@ -34,7 +35,7 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
 
   const TabMenu = [
     { Title: '능력치', Load: '' },
-    { Title: '수집품', Load: 'avoater' },
+    { Title: '수집품', Load: 'Collect' },
     { Title: '보유 캐릭터', Load: 'Others' },
   ];
 
@@ -65,6 +66,7 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
         </div>
         {selectedTab === '' && children}
         {selectedTab === 'Others' && <OthersPage OtherCharacter={OtherCharacter} decodedId={decodedId} />}
+        <div>{selectedTab === 'Collect' && <Character_Collect decodedId={decodedId} />}</div>
         <div>{selectedTab === '' && <Characters_gems decodedId={decodedId} />}</div>
         <div>{selectedTab === '' && <Characters_power decodedId={decodedId} />}</div>
         <div>{selectedTab === '' && <Characters_Card decodedId={decodedId} />}</div>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: '코니콩 로아검색',
   description: '로스트아크 전적검색 사이트입니다.',
   icons: {
-    icon: './images/Lostark/koni.png',
+    icon: '/images/Lostark/koni.png',
   },
   openGraph: {
     title: '코니콩 로아검색',
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     url: 'https://junmo-github-io.vercel.app/LostArk',
     images: [
       {
-        url: 'https://junmo-github-et1pop72i-junmos-projects.vercel.app/images/Lostark/koni.png',
+        url: 'https://junmo-github-et1pop72i-junmos-projects.vercel.app/images/Lostark/KoniImage.jpg',
         width: 800,
-        height: 600,
+        height: 400,
       },
     ],
   },

@@ -37,8 +37,8 @@ const Characters_Card = ({ decodedId }: ICharacterCardProps) => {
       <div className="flex justify-between items-center mb-4">
         <div className="font-bold text-[20px] ">카드효과</div>
         <div className="font-semibold text-[14px] flex gap-2">
-          <div>{result?.[0]} /</div>
-          <div>{result?.[1]}</div>
+          <div>{result?.[0]}</div>
+          <div> {result?.[1]}</div>
         </div>
       </div>
       <div>

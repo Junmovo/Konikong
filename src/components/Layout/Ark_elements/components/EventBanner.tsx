@@ -5,13 +5,16 @@ import Autoplay from 'embla-carousel-autoplay';
 import instance from '@/app/(myProject)/LostArk/service/service';
 import { IEventInfo } from '@/types/Ark';
 import EventList from './EventList';
+import SkeletonEvent from './SkeletonEvent';
 
 const EventBanner = () => {
   const [EventInfo, setEventInfo] = useState<IEventInfo[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getAPIData = async () => {
     const { data } = await instance.get('/news/events');
     setEventInfo(data);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -32,9 +35,11 @@ const EventBanner = () => {
       ]}
     >
       <CarouselContent className="-ml-1">
-        {EventInfo.map((List, idx) => (
-          <EventList List={List} key={idx} />
-        ))}
+        {isLoading
+          ? new Array(5).fill(1).map((_, i) => {
+              return <SkeletonEvent key={i} />;
+            })
+          : EventInfo.map((List, idx) => <EventList List={List} key={idx} />)}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
