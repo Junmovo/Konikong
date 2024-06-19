@@ -6,13 +6,23 @@ import ArkHeader from '@/components/Layout/Ark_elements/Header';
 import ArkWrapper from '@/components/Layout/Ark_elements/ArkWrapper';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://junmo-github-io.vercel.app/'),
   title: '코니콩 로아검색',
-  description: '로스아크 전적검색 사이트입니다.',
+  description: '로스트아크 전적검색 사이트입니다.',
   icons: {
     icon: './images/Lostark/koni.png',
   },
   openGraph: {
-    images: './images/Lostark/koni.png',
+    title: '코니콩 로아검색',
+    description: '로스트아크 전적검색 사이트입니다.',
+    url: 'https://junmo-github-io.vercel.app/LostArk',
+    images: [
+      {
+        url: 'https://junmo-github-et1pop72i-junmos-projects.vercel.app/images/Lostark/koni.png',
+        width: 800,
+        height: 600,
+      },
+    ],
   },
 };
 
