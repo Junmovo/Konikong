@@ -1,5 +1,4 @@
 'use client';
-import ItemsPage from '@/app/(myProject)/LostArk/character/[Id]/items/page';
 // import OthersPage from '@/app/(myProject)/LostArk/character/[Id]/others/page';
 import instance from '@/app/(myProject)/LostArk/service/service';
 import { cn } from '@/lib/utils';
@@ -35,7 +34,7 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
 
   const TabMenu = [
     { Title: '능력치', Load: '' },
-    { Title: '아바타', Load: 'avoater' },
+    { Title: '수집품', Load: 'avoater' },
     { Title: '보유 캐릭터', Load: 'Others' },
   ];
 
@@ -65,7 +64,6 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
           </ul>
         </div>
         {selectedTab === '' && children}
-        {selectedTab === 'items' && <ItemsPage />}
         {selectedTab === 'Others' && <OthersPage OtherCharacter={OtherCharacter} decodedId={decodedId} />}
         <div>{selectedTab === '' && <Characters_gems decodedId={decodedId} />}</div>
         <div>{selectedTab === '' && <Characters_power decodedId={decodedId} />}</div>
