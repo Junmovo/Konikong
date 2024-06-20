@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: 'https://junmo-github-io.vercel.app/LostArk',
     images: [
       {
-        url: 'https://junmo-github-et1pop72i-junmos-projects.vercel.app/images/Lostark/KoniImage.jpg',
+        url: '/images/Lostark/KoniImage.jpg',
         width: 800,
         height: 400,
       },

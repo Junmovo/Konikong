@@ -5,9 +5,9 @@ interface InfoBedgeProps {
   grade: string;
 }
 const colorBedge: { [key: string]: string } = {
-  level: ' bg-gray-100 border-gray-100',
-  plus: ' bg-slate-100 text-[#425ad5]',
-  minus: ' bg-red-50 text-[#dc6b6b]',
+  level: ' bg-gray-100 border-gray-100 dark:bg-gray-800',
+  plus: ' bg-slate-100 text-[#425ad5] dark:bg-[#b8c1f5] dark:text-[#182466]',
+  minus: ' bg-red-50 text-[#dc6b6b] dark:bg-[#f8c7c7] dark:text-[#b33b3b]',
   default: 'border',
 };
 

@@ -10,9 +10,13 @@ import NoneContents from '@/components/Layout/Ark_elements/commons/NoneContents'
 import ItemSection3 from '@/components/Layout/Ark_elements/components/Character/ItemSection3';
 import ItemSectionUnder from '@/components/Layout/Ark_elements/components/Character/ItemSectionUnder';
 import ArkWhiteBox from '@/components/Layout/Ark_elements/ArkWhiteBox';
+import SkeletonDungeon from '@/components/Layout/Ark_elements/components/SkeletonDungeon';
+import SkeletonWeapon from '@/components/Layout/Ark_elements/components/Character/SkeletonWeapon';
 
 const CharacterPages = ({ params }: { params: ISearchParams }) => {
   const [CharacterWeapon, setCharacterWeapon] = useState<ICharacterWeapon[]>();
+  const [isLoading, setIsLoading] = useState(true);
+
   const decodedId = decodeURIComponent(params.Id);
 
   useEffect(() => {
@@ -20,6 +24,7 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
       try {
         const { data } = await instance.get(`/armories/characters/${decodedId}/equipment`);
         setCharacterWeapon(data);
+        setIsLoading(false);
       } catch (error) {
         console.error('데이터를 받아오지 못했습니다.');
       }
@@ -27,7 +32,7 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
     getAPIData();
   }, [params.Id, decodedId]);
   if (!CharacterWeapon) {
-    return <div></div>;
+    return <SkeletonWeapon></SkeletonWeapon>;
   }
   const newWeapon = [...CharacterWeapon];
   const WeaponValue = cunkArray(newWeapon, 6);
@@ -38,28 +43,34 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
 
   return (
     <ArkWhiteBox>
-      <div className="grid grid-cols-2  border-b-[1px] ">
-        <div className="">
-          {WeaponValue[0]?.map((items, idx) => (
-            <ItemSection items={items} key={idx} />
-          ))}
-        </div>
-        <div className="">
-          {WeaponValue[1]?.map((items, idx) => (
-            <ItemSection2 items={items} key={idx} />
-          ))}
-        </div>
-      </div>
-      <div className="grid grid-cols-2 w-full pt-[10px]">
-        <div className="">
-          {WeaponValue[2]?.map((items, idx) => {
-            if (idx === 0) {
-              return <ItemSection3 items={items} key={idx} />;
-            }
-          })}
-        </div>
-        <ItemSectionUnder items={WeaponValue[0][0]} />
-      </div>
+      {isLoading ? (
+        <SkeletonWeapon></SkeletonWeapon>
+      ) : (
+        <>
+          <div className="grid grid-cols-2  border-b-[1px] ">
+            <div className="">
+              {WeaponValue[0]?.map((items, idx) => (
+                <ItemSection items={items} key={idx} />
+              ))}
+            </div>
+            <div className="">
+              {WeaponValue[1]?.map((items, idx) => (
+                <ItemSection2 items={items} key={idx} />
+              ))}
+            </div>
+          </div>
+          <div className="grid grid-cols-2 w-full pt-[10px]">
+            <div className="">
+              {WeaponValue[2]?.map((items, idx) => {
+                if (idx === 0) {
+                  return <ItemSection3 items={items} key={idx} />;
+                }
+              })}
+            </div>
+            <ItemSectionUnder items={WeaponValue[0][0]} />
+          </div>
+        </>
+      )}
     </ArkWhiteBox>
   );
 };

@@ -10,7 +10,7 @@ const InfoBox: React.FC<IInfoBoxProps> = ({ title, contents, subcontents }) => {
   return (
     <div className="flex flex-col justify-center">
       <div className="text-gray-500">{title}</div>
-      <div className="font-bold text-black text-[24px]">
+      <div className="font-bold text-black dark:text-white text-[24px]">
         <span className="text-[12px] ">{subcontents}</span>
         {contents}
       </div>

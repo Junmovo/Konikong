@@ -46,7 +46,7 @@ const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
   return (
     <>
       <div className="w-full">
-        <div className=" p-[10px] bg-white shadow-[0_2px_30px_0_rgba(0,0,0,.06)] rounded-lg">
+        <div className=" p-[10px] bg-white shadow-[0_2px_30px_0_rgba(0,0,0,.06)] rounded-lg dark:bg-[#2525259d]">
           <ul className="flex">
             {TabMenu.map((el, idx) => (
               <li

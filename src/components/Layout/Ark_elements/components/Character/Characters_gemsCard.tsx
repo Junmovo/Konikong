@@ -44,7 +44,7 @@ const Characters_gemsCard: React.FC<IGemsCard> = ({ items, moreView }) => {
           </div>
           <div className="text-[14px] text-gray-400 ">{part1}</div>
           <div className="font-semibold w-[200px]">{part2}</div>
-          <div className=" text-gray-600 ">{part3}</div>
+          <div className=" text-gray-600 dark:text-gray-400">{part3}</div>
         </div>
       ) : null}
     </div>

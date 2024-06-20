@@ -94,7 +94,7 @@ export default function SearchBar({ header, main }: ISearchBarProps) {
         {ShowModal && (
           <div ref={modalRef}>
             <Tabs defaultValue="searchvalue" className="absolute w-full z-[1]  mt-[10px] ">
-              <TabsList className="w-full p-2 h-[50px]">
+              <TabsList className="w-full p-2 h-[50px] ">
                 <TabsTrigger value="searchvalue" className="w-[50%] focus:text-[#425ad5]">
                   최근검색
                 </TabsTrigger>

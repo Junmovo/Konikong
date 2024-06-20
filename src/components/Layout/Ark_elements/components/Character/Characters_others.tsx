@@ -36,7 +36,7 @@ const OthersPage = ({ OtherCharacter, decodedId }: IOthersPage) => {
                   <div
                     className={cn(
                       'border rounded-lg p-5 text-center hover:shadow-[0_2px_30px_0_rgba(0,0,0,.06)] transition',
-                      decodedId === el.CharacterName ? ' bg-gray-50' : ''
+                      decodedId === el.CharacterName ? ' bg-gray-50 dark:bg-[#121212]' : ''
                     )}
                   >
                     <div className="flex items-center w-full justify-center mb-[5px]">

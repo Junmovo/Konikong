@@ -21,7 +21,7 @@ const Characters_ver2: React.FC<IInfoProps> = ({ CharacterInfo, decodedId }) => 
   return (
     <div className="w-full min-w-[330px]">
       <div className="flex justify-between w-full">
-        <div className="flex w-full flex-col items-center gap-1 bg-white shadow-[0_2px_30px_0_rgba(0,0,0,.06)]  rounded-lg overflow-hidden">
+        <div className="flex w-full flex-col items-center gap-1 bg-white shadow-[0_2px_30px_0_rgba(0,0,0,.06)]  rounded-lg overflow-hidden dark:bg-[#2525259d]">
           {/* 프로필사진 */}
           <div className="w-full h-[250px] bg-[#15181d] relative overflow-hidden">
             <div
@@ -48,18 +48,18 @@ const Characters_ver2: React.FC<IInfoProps> = ({ CharacterInfo, decodedId }) => 
             </div>
           </div>
           {/* 내용 */}
-          <div className="w-full relative p-[25px]">
+          <div className="w-full relative p-[25px] ">
             <div className="">
               <div className="flex items-end">
-                <div className="font-bold text-black text-[30px]">{decodedId}</div>
+                <div className="font-bold  text-[30px]">{decodedId}</div>
               </div>
               <InfoBox contents={CharacterInfo?.ItemAvgLevel} subcontents="Lv." />
 
               <div className="gap-1 flex  mt-2">
-                <div className="text-[12px] bg-gray-100 inline-block px-[8px] py-[3px] rounded-sm">
+                <div className="text-[12px] bg-gray-100 dark:bg-gray-900 inline-block px-[8px] py-[3px] rounded-sm">
                   {CharacterInfo?.ServerName}{' '}
                 </div>
-                <div className="text-[12px] bg-gray-100 inline-block px-[8px] py-[3px] rounded-sm">
+                <div className="text-[12px] bg-gray-100 dark:bg-gray-900 inline-block px-[8px] py-[3px] rounded-sm">
                   {CharacterInfo?.CharacterClassName}
                 </div>
               </div>

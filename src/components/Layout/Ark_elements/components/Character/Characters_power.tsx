@@ -45,7 +45,7 @@ const Characters_power = ({ decodedId }: ICharactersPower) => {
               <Character_stats key={idx} Stats={el} top={false} />
             ))}
         </div>
-        <div className="grid grid-cols-2 gap-2 bg-slate-50 rounded-lg mt-2 p-2">
+        <div className="grid grid-cols-2 gap-2 bg-slate-50 rounded-lg mt-2 p-2 dark:bg-[#121212]">
           {CharacterPower.Tendencies.map((tenden, idx) => (
             <Character_tenden tenden={tenden} key={idx} />
           ))}

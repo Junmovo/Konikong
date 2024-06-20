@@ -24,7 +24,7 @@ const FavoritesLog = () => {
 
   return (
     <div>
-      <div className="rounded-lg bg-white overflow-hidden shadow-lg">
+      <div className="rounded-lg bg-white overflow-hidden shadow-lg dark:bg-[#121212]">
         <ul>
           {favorites.length ? (
             favorites.map((value, idx) => (

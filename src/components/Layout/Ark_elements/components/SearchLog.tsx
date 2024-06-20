@@ -21,7 +21,7 @@ const SearchLog = () => {
 
   return (
     <div>
-      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+      <div className="bg-white rounded-lg overflow-hidden shadow-lg dark:bg-[#121212]">
         <ul className="">
           {searchValue.length ? (
             searchValue.map((value, idx) => (

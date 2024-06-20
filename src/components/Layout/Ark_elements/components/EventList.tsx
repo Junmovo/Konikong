@@ -20,7 +20,7 @@ const EventList = ({ List }: EventListProps) => {
           <Image src={Thumbnail} fill alt={Title} className="group-hover:scale-105 transition" />
         </div>
         <div className="ml-[10px] mt-[10px]">
-          <div className="text-[16px] mb-[3px] font-semibold text-[#555]">{Title}</div>
+          <div className="text-[16px] mb-[3px] font-semibold text-[#555] dark:text-white">{Title}</div>
           <div className="flex text-[14px]">
             <div className="text-[#9c9d9e]">{S_Date} ~</div>
             <div className="text-[#9c9d9e]">{E_date}</div>

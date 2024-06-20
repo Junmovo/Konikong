@@ -67,7 +67,7 @@ const Characters_gems = ({ decodedId }: ICharactersGems) => {
           </div>
         </div>
         <span
-          className="bg-gray-100 px-[10px] cursor-pointer items-center rounded-sm text-[12px] flex"
+          className="bg-gray-100 px-[10px] cursor-pointer items-center rounded-sm text-[12px] flex dark:bg-gray-900"
           onClick={onClickMore}
         >
           {CharacterGems && selectedTab ? '닫기' : '더보기'}
@@ -101,13 +101,13 @@ const Characters_gems = ({ decodedId }: ICharactersGems) => {
           <div className="grid grid-cols-11">
             {mul.length === 0 ? null : (
               <div
-                className={`col-span-${mul.length} justify-center font-semibold flex items-center px-2 gap-x-2`}
+                className={`col-span-${mul.length} justify-center font-semibold flex items-center px-2 gap-x-2  `}
                 style={{ gridColumn: `span ${mul.length} / span ${mul.length}` }}
               >
-                <div className="grow h-2 mb-[6px] border-l-2 border-b-2 border-basicGrey dark:border-placeholder"></div>
+                <div className="grow h-2 mb-[6px] border-l-2 border-b-2 border-basicGrey dark:border-placeholder dark:border-gray-500"></div>
                 멸화 {mul.length}
                 <div
-                  className="grow h-2 mb-[6px] border-b-2 border-r-2 border-basicGrey dark:border-placeholder"
+                  className="grow h-2 mb-[6px] border-b-2 border-r-2 border-basicGrey dark:border-placeholder dark:border-gray-500"
                   style={{ gridColumn: `span ${mul.length} / span ${mul.length}` }}
                 ></div>
               </div>
@@ -118,10 +118,10 @@ const Characters_gems = ({ decodedId }: ICharactersGems) => {
                 className={` justify-center font-semibold flex items-center px-2 gap-x-2`}
                 style={{ gridColumn: `span ${hong.length} / span ${hong.length}` }}
               >
-                <div className="grow h-2 mb-[6px] border-l-2 border-b-2 border-basicGrey dark:border-placeholder"></div>
+                <div className="grow h-2 mb-[6px] border-l-2 border-b-2 border-basicGrey dark:border-placeholder dark:border-gray-500"></div>
                 홍염 {hong.length}
                 <div
-                  className="grow h-2 mb-[6px] border-b-2 border-r-2 border-basicGrey dark:border-placeholder "
+                  className="grow h-2 mb-[6px] border-b-2 border-r-2 border-basicGrey dark:border-placeholder dark:border-gray-500"
                   style={{ gridColumn: `span ${hong.length} / span ${hong.length}` }}
                 ></div>
               </div>

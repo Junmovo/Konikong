@@ -7,20 +7,28 @@ import { cn } from '@/lib/utils';
 import { IoSunnySharp } from 'react-icons/io5';
 import IconButton from '../../elements/IconButton';
 import SearchBar from '../commons/SearchBar';
+import { useTheme } from 'next-themes';
+import { FaMoon } from 'react-icons/fa6';
 
 const HeaderMenu: IHeaderMenu[] = [
   { label: '홈', link: '/LostArk' },
   { label: '공지사항', link: '/LostArk/notice' },
-  { label: '전투정보실', link: '/LostArk/rank' },
-  { label: '임시테스트', link: '/LostArk/unknown' },
 ];
 
 const HeaderList = () => {
+  const { resolvedTheme, setTheme } = useTheme();
   const pathname = usePathname();
   const mainPath = pathname === '/LostArk';
+  const onClickMode = () => {
+    if (resolvedTheme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
   return (
     <div className="flex justify-between items-center w-full h-[64px]">
-      <ul className="flex">
+      <ul className="flex ml-4">
         {HeaderMenu.map((menu, idx) => (
           <li key={idx} className="relative">
             <Link
@@ -39,7 +47,10 @@ const HeaderList = () => {
       </ul>
       <div className="flex items-center gap-4">
         <SearchBar header={true} main={mainPath} />
-        <IconButton icon={<IoSunnySharp size={20} />} />
+        <IconButton
+          icon={resolvedTheme === 'light' ? <FaMoon size={20} /> : <IoSunnySharp size={20} />}
+          onClickIcon={onClickMode}
+        />
       </div>
     </div>
   );

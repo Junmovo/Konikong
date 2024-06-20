@@ -54,8 +54,8 @@ const Character_Collect = ({ decodedId }: ICharacterCollectProps) => {
             <div
               key={idx}
               className={cn(
-                'p-4 rounded-lg border border-slate-50 flex justify-between cursor-pointer items-center bg-slate-50',
-                el.Type === SelectedValue ? 'border-[#a8b4f3]' : ''
+                'p-4 rounded-lg border border-slate-50 flex justify-between cursor-pointer items-center bg-slate-50 dark:bg-[#121212] dark:border-[#121212]',
+                el.Type === SelectedValue ? 'border-[#a8b4f3] dark:border-white' : ''
               )}
               onClick={onClickSelected(el.Type)}
             >
@@ -71,13 +71,6 @@ const Character_Collect = ({ decodedId }: ICharacterCollectProps) => {
                     {el.Point} / {el.MaxPoint}
                   </div>
                 </div>
-              </div>
-
-              <div>
-                {/* <div className="font-semibold">
-                  {((el.Point / el.MaxPoint) * 100).toFixed(2).replace(/\.?0*$/, '')}%
-                </div> */}
-                <div className="px-1 text-[12px] flex items-center bg-gray-100 rounded-lg">자세히</div>
               </div>
             </div>
           ))}

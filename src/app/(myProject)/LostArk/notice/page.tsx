@@ -9,11 +9,14 @@ import { IoIosArrowForward } from 'react-icons/io';
 import { IoIosArrowBack } from 'react-icons/io';
 import ArkPadding from '@/components/Layout/Ark_elements/ArkPadding';
 import ArkWhiteBox from '@/components/Layout/Ark_elements/ArkWhiteBox';
+import SkeletonNotice from '@/components/Layout/Ark_elements/components/SkeletonNotice';
 
 export default function LostArkNotice() {
   const [NoticeInfo, setNoticeInfo] = useState<INoticeInfo[]>([]);
   const [FilteredNoticeInfo, setFilteredNoticeInfo] = useState<INoticeInfo[]>([]);
   const [Page, setPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState(true);
+
   const [NowActive, setNowActive] = useState<string>('전체');
   const Pagination = Math.floor(FilteredNoticeInfo.length / 10 + 1);
   const LastPage = Page * 10;
@@ -57,6 +60,7 @@ export default function LostArkNotice() {
     const { data } = await instance.get('/news/notices');
     setNoticeInfo(data);
     setFilteredNoticeInfo(data);
+    setIsLoading(false);
   };
   useEffect(() => {
     getAPIData();
@@ -84,11 +88,15 @@ export default function LostArkNotice() {
         </div>
         <div>
           <ul>
-            {SliceNotice?.map((notice, idx) => (
-              <li key={idx} className="last:border-none border-neutral-300 border-b-[1px] hover:bg-gray-100">
-                <NoticeList notice={notice} />
-              </li>
-            ))}
+            {isLoading
+              ? new Array(10).fill(1).map((_, i) => {
+                  return <SkeletonNotice key={i} />;
+                })
+              : SliceNotice?.map((notice, idx) => (
+                  <li key={idx} className="last:border-none border-neutral-300 border-b-[1px] hover:bg-gray-100">
+                    <NoticeList notice={notice} />
+                  </li>
+                ))}
           </ul>
         </div>
         <div className=" w-full items-center justify-center flex mt-10">
