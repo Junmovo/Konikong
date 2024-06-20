@@ -76,8 +76,8 @@ export default function LostArkNotice() {
               <li
                 key={idx}
                 className={cn(
-                  'px-[15px] py-[8px] w-[] text-[14px] rounded-full cursor-pointer hover:bg-gray-100 border ',
-                  NowActive === tag ? 'bg-[#e8eaf7]  text-[#425ad5] font-semibold' : 'border'
+                  'px-[15px] py-[8px] w-[] text-[14px] rounded-full cursor-pointer hover:bg-gray-100 border dark:hover:bg-[#2525259d]',
+                  NowActive === tag ? 'bg-[#e8eaf7] dark:bg-black  text-[#425ad5] font-semibold' : 'border'
                 )}
                 onClick={onClickFilter(tag)}
               >
@@ -93,7 +93,10 @@ export default function LostArkNotice() {
                   return <SkeletonNotice key={i} />;
                 })
               : SliceNotice?.map((notice, idx) => (
-                  <li key={idx} className="last:border-none border-neutral-300 border-b-[1px] hover:bg-gray-100">
+                  <li
+                    key={idx}
+                    className="last:border-none border-neutral-300 border-b-[1px] hover:bg-gray-100 dark:hover:bg-[#2525259d]"
+                  >
                     <NoticeList notice={notice} />
                   </li>
                 ))}

@@ -49,7 +49,7 @@ const Dungeons = () => {
                     </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-3 gap-3 bg-gray-50 p-2 px-5 rounded-lg scrollbar-gutter-stable">
+                <div className="grid grid-cols-3 gap-3 bg-gray-50 p-2 px-5 rounded-lg scrollbar-gutter-stable dark:bg-[#121212]">
                   {items.RewardItems.map((el, i) => (
                     <div key={i}>
                       <Tooltip title={el.Name}>

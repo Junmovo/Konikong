@@ -75,7 +75,7 @@ export default function SearchBar({ header, main }: ISearchBarProps) {
             type="text"
             className={cn(
               'w-full rounded-[10px] outline-none',
-              header ? 'px-[20px] py-[10px] bg-slate-100' : 'px-[30px] py-[20px]'
+              header ? 'px-[20px] py-[10px] bg-slate-100 dark:bg-[#2525259d]' : 'px-[30px] py-[20px]'
             )}
             placeholder="캐릭터명을 입력해주세요."
             onChange={onChangeCharacterValue}
