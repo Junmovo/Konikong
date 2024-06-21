@@ -40,7 +40,13 @@ const OthersPage = ({ OtherCharacter, decodedId }: IOthersPage) => {
                     )}
                   >
                     <div className="flex items-center w-full justify-center mb-[5px]">
-                      <Image src={ImgClass(el.CharacterClassName)} width={40} height={40} alt="mark" />
+                      <Image
+                        src={ImgClass(el.CharacterClassName)}
+                        width={40}
+                        height={40}
+                        alt="mark"
+                        className="dark:brightness-1 dark:invert"
+                      />
                     </div>
                     <div className="border-b-[1px] font-semibold text-center mb-[10px] pb-[5px]">
                       {el.CharacterName}
