@@ -1,16 +1,9 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 import './globals.css';
 import StyledComponentsRegistry from '@/lib/registry';
 import styles from './page.module.css';
 import Header from '@/components/Layout/Header';
-
-const pretendard = localFont({
-  src: '../../public/fonts/PretendardVariable.woff2',
-  display: 'swap',
-  weight: '45 920',
-  variable: '--font-pretendard',
-});
+import { NanumNeo, Tmoney, montserrat, pretendard } from '../../public/fonts/fonts';
 
 export const metadata: Metadata = {
   title: '준모 포트폴리오',
@@ -23,11 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="kr" className={`${pretendard.variable}`}>
+    <html
+      lang="kr"
+      className={`${NanumNeo.variable} ${Tmoney.variable}  ${pretendard.variable} ${montserrat.className} `}
+    >
       <StyledComponentsRegistry>
-        <body className={pretendard.className} style={{ overflowX: 'hidden' }}>
+        <body className={NanumNeo.className} style={{ overflowX: 'hidden' }}>
           <Header />
-          <div className={styles.wrapper}>{children}</div>
+          <div>{children}</div>
         </body>
       </StyledComponentsRegistry>
     </html>

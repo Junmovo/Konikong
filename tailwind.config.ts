@@ -16,6 +16,9 @@ const config = {
       GMarket_M: ['GMarket_Medium'],
       GMarket_L: ['GMarket_Light'],
       GMarket_B: ['GMarket_Bold'],
+      pretendard: ['var(--font-pretendard)'],
+      NanumNeo: ['var(--font-NanumNeo)'],
+      Tmoney: ['var(--font-Tmoney)'],
     },
     extend: {
       colors: {

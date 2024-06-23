@@ -1,3 +1,4 @@
+import { montserrat } from './../../public/fonts/fonts';
 import styled, { keyframes } from 'styled-components';
 // 고정 이너
 const bounceAnimation = keyframes`
@@ -33,13 +34,13 @@ export const TitleCircle = styled.span`
   padding: 10px 20px;
   border: 1px solid #1a1a1a;
   border-radius: 25px;
+  font-family: 'montserrat';
   display: inline-block;
   margin-bottom: 10px;
 `;
 
 export const Title = styled.h1`
   font-size: 64px;
-  /* font-family: 'Tmoney_B'; */
   font-weight: 900;
   color: #1a1a1a;
   & span {
@@ -53,7 +54,8 @@ export const Title = styled.h1`
 
 export const TypedText = styled.span`
   font-size: 70px;
-  font-weight: 900;
+  font-weight: 400;
+  font-family: 'montserrat';
   ~ .typed-cursor {
     font-size: 70px;
   }

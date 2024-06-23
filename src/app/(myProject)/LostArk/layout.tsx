@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { ThemeProvider } from '../../../../provider/ThemeProvider';
 import ArkHeader from '@/components/Layout/Ark_elements/Header';
 import ArkWrapper from '@/components/Layout/Ark_elements/ArkWrapper';
+import { pretendard } from '../../../../public/fonts/fonts';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://junmo-github-io.vercel.app/'),
@@ -29,8 +30,10 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      <ArkHeader />
-      <ArkWrapper>{children}</ArkWrapper>
+      <div className="font-pretendard">
+        <ArkHeader />
+        <ArkWrapper>{children}</ArkWrapper>
+      </div>
     </ThemeProvider>
   );
 }
