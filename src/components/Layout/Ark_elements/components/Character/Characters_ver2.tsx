@@ -8,6 +8,9 @@ import { CiStar } from 'react-icons/ci';
 import { FaStar } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import InfoBox_ver2 from './InfoTitle_ver2';
+import { IoShareSocial } from 'react-icons/io5';
+import IconButton from '@/components/Layout/elements/IconButton';
+import { copyURL } from '@/components/Layout/LinkCopy';
 
 const Characters_ver2: React.FC<IInfoProps> = ({ CharacterInfo, decodedId }) => {
   const { addFavorites } = useLostArkSearchStore();
@@ -49,6 +52,10 @@ const Characters_ver2: React.FC<IInfoProps> = ({ CharacterInfo, decodedId }) => 
           </div>
           {/* 내용 */}
           <div className="w-full relative p-[25px] ">
+            <div className="absolute right-[20px] cursor-pointer">
+              <IconButton icon={<IoShareSocial size={20} />} onClickIcon={copyURL} />
+            </div>
+
             <div className="">
               <div className="flex items-end">
                 <div className="font-bold  text-[30px]">{decodedId}</div>

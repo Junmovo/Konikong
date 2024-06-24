@@ -9,6 +9,7 @@ import instance from '../../../../../app/(myProject)/LostArk/service/service';
 import CharactersMenu from '@/components/Layout/Ark_elements/components/Character/CharactersMenu';
 import NoneContents from '@/components/Layout/Ark_elements/commons/NoneContents';
 import LostarkSerachLoading from '../loading';
+import { Toaster } from '@/components/ui/sonner';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -55,6 +56,7 @@ export default function Layout({ children, params }: LayoutProps) {
             <CharactersMenu decodedId={decodedId}>{children}</CharactersMenu>
           </div>
         </ArkPadding>
+        <Toaster position="top-center" duration={2000} richColors />
       </div>
     </>
   );
