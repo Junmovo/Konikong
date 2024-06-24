@@ -17,7 +17,7 @@ const LostarkDetailTop = () => {
             <h1 className="font-[800] text-[64px] mb-5">코니콩</h1>
           </div>
           <div>
-            <div className="mb-4">24.06.04 - 24.06.20</div>
+            <div className="mb-2">24.06.04 - 24.06.20</div>
           </div>
           <div className="text-gray-500">
             로스트아크 OpenAPi를 활용한 캐릭터 정보검색 사이트입니다. <br />
