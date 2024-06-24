@@ -65,6 +65,7 @@ export default function LostArkNotice() {
   useEffect(() => {
     getAPIData();
   }, []);
+  if (isLoading) return <SkeletonNotice />;
 
   return (
     <ArkPadding>
@@ -88,18 +89,14 @@ export default function LostArkNotice() {
         </div>
         <div>
           <ul>
-            {isLoading
-              ? new Array(10).fill(1).map((_, i) => {
-                  return <SkeletonNotice key={i} />;
-                })
-              : SliceNotice?.map((notice, idx) => (
-                  <li
-                    key={idx}
-                    className="last:border-none border-neutral-300 border-b-[1px] hover:bg-gray-100 dark:hover:bg-[#2525259d]"
-                  >
-                    <NoticeList notice={notice} />
-                  </li>
-                ))}
+            {SliceNotice?.map((notice, idx) => (
+              <li
+                key={idx}
+                className="last:border-none border-neutral-300 border-b-[1px] hover:bg-gray-100 dark:hover:bg-[#2525259d]"
+              >
+                <NoticeList notice={notice} />
+              </li>
+            ))}
           </ul>
         </div>
         <div className=" w-full items-center justify-center flex mt-10">

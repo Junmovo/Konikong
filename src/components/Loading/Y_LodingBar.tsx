@@ -4,9 +4,10 @@ import { BarLoader } from 'react-spinners';
 
 const Y_LoadingBar = () => {
   return (
-    <div className="w-full">
-      <BarLoader color="#36d7b7" cssOverride={{ width: '100%' }} />
-    </div>
+    <div></div>
+    // <div className="w-full">
+    //   <BarLoader color="#36d7b7" cssOverride={{ width: '100%' }} />
+    // </div>
   );
 };
 

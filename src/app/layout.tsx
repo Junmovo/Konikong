@@ -4,6 +4,8 @@ import StyledComponentsRegistry from '@/lib/registry';
 import styles from './page.module.css';
 import Header from '@/components/Layout/Header';
 import { NanumNeo, Tmoney, montserrat, pretendard } from '../../public/fonts/fonts';
+import ConditionalHeader from '@/components/Layout/HeaderConditional';
+import { ThemeProvider } from '../../provider/ThemeProvider';
 
 export const metadata: Metadata = {
   title: '준모 포트폴리오',
@@ -22,8 +24,10 @@ export default function RootLayout({
     >
       <StyledComponentsRegistry>
         <body className={NanumNeo.className} style={{ overflowX: 'hidden' }}>
-          <Header />
-          <div>{children}</div>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+            <ConditionalHeader />
+            <div className="">{children}</div>
+          </ThemeProvider>
         </body>
       </StyledComponentsRegistry>
     </html>

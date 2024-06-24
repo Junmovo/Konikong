@@ -53,11 +53,11 @@ export const Title = styled.h1`
 `;
 
 export const TypedText = styled.span`
-  font-size: 70px;
+  font-size: 80px;
   font-weight: 400;
   font-family: 'montserrat';
   ~ .typed-cursor {
-    font-size: 70px;
+    font-size: 80px;
   }
 `;
 
@@ -71,14 +71,17 @@ export const DesignText = styled.div`
   font-size: 70px;
   position: absolute;
   filter: blur(10px);
+  font-family: 'montserrat';
+
   font-weight: 600;
 `;
 
 export const NextJsText = styled(DesignText)`
   right: 5px;
-  font-size: 130px;
-  top: -100%;
+  font-size: 80px;
+  top: 30%;
   filter: blur(7px);
+  color: #ddd;
   animation: ${bounceAnimation} 2s infinite alternate;
 `;
 
@@ -86,22 +89,27 @@ export const FrontEndText = styled(DesignText)`
   filter: blur(7px);
   left: 0;
   font-size: 50px;
+  top: 18%;
+  color: #999;
   animation: ${bounceAnimation} 4s infinite alternate;
 `;
 
 export const TypeScript = styled(DesignText)`
-  filter: blur(14px);
-  bottom: -60%;
+  filter: blur(10px);
+  bottom: 10%;
   left: 50%;
+  color: #555;
+
+  rotate: -10deg;
   font-size: 80px;
   animation: ${bounceAnimation} 3s infinite alternate;
 `;
 
 export const CodeText = styled(DesignText)`
   filter: blur(1px);
-  rotate: -30deg;
-  top: 0;
-  left: 20%;
+  rotate: 30deg;
+  top: 10%;
+  right: 20%;
   font-size: 80px;
   animation: ${bounceAnimation} 3s infinite alternate;
 `;

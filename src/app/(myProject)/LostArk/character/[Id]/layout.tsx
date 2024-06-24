@@ -3,12 +3,12 @@ import React, { useEffect } from 'react';
 import CharacterPage from '../../../../../components/Layout/Ark_elements/components/Character/Charcterpage';
 import ArkPadding from '@/components/Layout/Ark_elements/ArkPadding';
 import LostArk_LoadingBar from '@/app/(myProject)/LostArk/loading';
-import CharacterLoading from '@/app/(myProject)/LostArk/character/[Id]/loding';
 import { ICharacterWeapon, ICharterProfiles, ISearchParams } from '@/types/Ark';
 import { useState } from 'react';
 import instance from '../../../../../app/(myProject)/LostArk/service/service';
 import CharactersMenu from '@/components/Layout/Ark_elements/components/Character/CharactersMenu';
 import NoneContents from '@/components/Layout/Ark_elements/commons/NoneContents';
+import LostarkSerachLoading from '../loading';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -40,7 +40,7 @@ export default function Layout({ children, params }: LayoutProps) {
   }, [params.Id]);
 
   if (loading) {
-    return <LostArk_LoadingBar />;
+    return <LostarkSerachLoading />;
   }
   if (!CharacterInfo) {
     return <NoneContents contents={`'${decodedId}' 캐릭터 정보가 없습니다.`} />;

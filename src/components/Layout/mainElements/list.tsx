@@ -10,7 +10,7 @@ export default function List(): JSX.Element {
   return (
     <>
       <S.ListWrapper>
-        <S.Title>MyProject</S.Title>
+        <h1 className="text-[64px] font-[800]">만나서 반가워</h1>
         <p>기타등등 얘기</p>
         <S.ListInner>
           <S.StyledSwiper
