@@ -44,7 +44,7 @@ const CharacterPages = ({ params }: { params: ISearchParams }) => {
         <SkeletonWeapon></SkeletonWeapon>
       ) : (
         <>
-          <div className="grid grid-cols-2  border-b-[1px] ">
+          <div className="grid grid-cols-2  border-b-[1px]">
             <div className="">
               {WeaponValue[0]?.map((items, idx) => (
                 <ItemSection items={items} key={idx} />
