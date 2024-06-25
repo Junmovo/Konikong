@@ -1,8 +1,13 @@
-import Y_LoadingBar from '@/components/Loading/Y_LodingBar';
+'use client';
 import React from 'react';
+import { BarLoader } from 'react-spinners';
 
-const loading = () => {
-  return <Y_LoadingBar />;
+const LostArk_LoadingBar = () => {
+  return (
+    <div className="w-full">
+      <BarLoader color="#425ad5" cssOverride={{ width: '100%' }} />
+    </div>
+  );
 };
 
-export default loading;
+export default LostArk_LoadingBar;

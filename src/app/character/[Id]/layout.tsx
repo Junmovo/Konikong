@@ -1,15 +1,14 @@
 'use client';
 import React, { useEffect } from 'react';
-import CharacterPage from '../../../../../components/Layout/Ark_elements/components/Character/Charcterpage';
 import ArkPadding from '@/components/Layout/Ark_elements/ArkPadding';
-import LostArk_LoadingBar from '@/app/(myProject)/LostArk/loading';
 import { ICharacterWeapon, ICharterProfiles, ISearchParams } from '@/types/Ark';
 import { useState } from 'react';
-import instance from '../../../../../app/(myProject)/LostArk/service/service';
 import CharactersMenu from '@/components/Layout/Ark_elements/components/Character/CharactersMenu';
 import NoneContents from '@/components/Layout/Ark_elements/commons/NoneContents';
 import LostarkSerachLoading from '../loading';
 import { Toaster } from '@/components/ui/sonner';
+import instance from '@/app/service/service';
+import CharacterPage from '@/components/Layout/Ark_elements/components/Character/Charcterpage';
 
 interface LayoutProps {
   children: React.ReactNode;

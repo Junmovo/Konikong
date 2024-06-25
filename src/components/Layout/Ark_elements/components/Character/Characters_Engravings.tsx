@@ -1,10 +1,10 @@
 'use client';
-import instance from '@/app/(myProject)/LostArk/service/service';
 import { ICharacterEngravings, IEngravings, IEngravingsEffect } from '@/types/Ark';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import InfoBedge from './InfoBedge';
 import NoneContents from '../../commons/NoneContents';
+import instance from '@/app/service/service';
 interface ICharacterEngravingsProps {
   decodedId: string;
 }

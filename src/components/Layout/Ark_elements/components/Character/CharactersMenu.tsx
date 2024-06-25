@@ -1,6 +1,5 @@
 'use client';
 // import OthersPage from '@/app/(myProject)/LostArk/character/[Id]/others/page';
-import instance from '@/app/(myProject)/LostArk/service/service';
 import { cn } from '@/lib/utils';
 import { ICharterInfo, ICharterProfiles } from '@/types/Ark';
 import React, { useEffect, useState } from 'react';
@@ -10,6 +9,7 @@ import ArkWhiteBox from '../../ArkWhiteBox';
 import Characters_power from './Characters_power';
 import Characters_Card from './Characters_Card';
 import Character_Collect from './Character_Collect';
+import instance from '@/app/service/service';
 
 interface ICharactersMenu {
   children: React.ReactNode;

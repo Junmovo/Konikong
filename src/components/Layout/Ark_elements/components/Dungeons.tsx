@@ -1,4 +1,3 @@
-import instance from '@/app/(myProject)/LostArk/service/service';
 import { IDungeons } from '@/types/Ark';
 import React, { useEffect, useState } from 'react';
 import ArkWhiteBox from '../ArkWhiteBox';
@@ -6,6 +5,7 @@ import Image from 'next/image';
 import { Tooltip } from 'antd';
 import SkeletonEvent from './SkeletonEvent';
 import SkeletonDungeon from './SkeletonDungeon';
+import instance from '@/app/service/service';
 
 const Dungeons = () => {
   const [Dungeons, setDungeons] = useState<IDungeons[]>();

@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
-import instance from '@/app/(myProject)/LostArk/service/service';
 import { IEventInfo } from '@/types/Ark';
 import EventList from './EventList';
 import SkeletonEvent from './SkeletonEvent';
+import instance from '@/app/service/service';
 
 const EventBanner = () => {
   const [EventInfo, setEventInfo] = useState<IEventInfo[]>([]);

@@ -1,4 +1,4 @@
-import instance from '@/app/(myProject)/LostArk/service/service';
+import instance from '@/app/service/service';
 import { ICharterInfo, ISearchLogValue } from '@/types/Ark';
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';

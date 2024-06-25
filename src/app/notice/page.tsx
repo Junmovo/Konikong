@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { INoticeInfo } from '@/types/Ark';
-import instance from '@/app/(myProject)/LostArk/service/service';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import NoticeList from '@/components/Layout/Ark_elements/components/NoticeList';
@@ -10,6 +9,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import ArkPadding from '@/components/Layout/Ark_elements/ArkPadding';
 import ArkWhiteBox from '@/components/Layout/Ark_elements/ArkWhiteBox';
 import SkeletonNotice from '@/components/Layout/Ark_elements/components/SkeletonNotice';
+import instance from '../service/service';
 
 export default function LostArkNotice() {
   const [NoticeInfo, setNoticeInfo] = useState<INoticeInfo[]>([]);

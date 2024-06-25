@@ -1,10 +1,10 @@
-import instance from '@/app/(myProject)/LostArk/service/service';
 import { ICharacterCards } from '@/types/Ark';
 import React, { useEffect, useState } from 'react';
 import ArkWhiteBox from '../../ArkWhiteBox';
 import Image from 'next/image';
 import { ImgStar } from '@/lib/utils';
 import InfoBedge from './InfoBedge';
+import instance from '@/app/service/service';
 
 interface ICharacterCardProps {
   decodedId: string;

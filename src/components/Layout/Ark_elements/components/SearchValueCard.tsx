@@ -18,7 +18,7 @@ const SearchValueCard: React.FC<ISearchLogValueProps> = ({
   return (
     <li className=" border-neutral-300 border-b-[1px] dark:border-b-gray-600  last:border-none first:border-t-none hover:bg-gray-50 dark:hover:bg-[#2525259d]">
       <div
-        onClick={onClickMovetoPage(`/LostArk/character/${name}`)}
+        onClick={onClickMovetoPage(`/character/${name}`)}
         className="flex items-center justify-between p-2 px-[20px] w-full cursor-pointer rounded-lg"
       >
         <div className="">

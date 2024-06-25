@@ -32,7 +32,7 @@ const OthersPage = ({ OtherCharacter, decodedId }: IOthersPage) => {
             {characters
               .sort((a, b) => Number(b.ItemAvgLevel.replace(/,/g, '')) - Number(a.ItemAvgLevel.replace(/,/g, '')))
               .map((el, idx) => (
-                <Link href={`/LostArk/character/${el.CharacterName}`} key={el.CharacterName}>
+                <Link href={`/character/${el.CharacterName}`} key={el.CharacterName}>
                   <div
                     className={cn(
                       'border rounded-lg p-5 text-center hover:shadow-[0_2px_30px_0_rgba(0,0,0,.06)] transition',

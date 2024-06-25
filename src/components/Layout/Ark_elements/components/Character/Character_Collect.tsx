@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import instance from '@/app/(myProject)/LostArk/service/service';
 import { ICharacterCollect } from '@/types/Ark';
 import ArkWhiteBox from '../../ArkWhiteBox';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import InfoBedge from './InfoBedge';
 import { FaCheck } from 'react-icons/fa6';
+import instance from '@/app/service/service';
 
 interface ICharacterCollectProps {
   decodedId: string;

@@ -1,9 +1,9 @@
 import { IRaids } from '@/types/Ark';
 import React, { useEffect, useState } from 'react';
-import instance from '@/app/(myProject)/LostArk/service/service';
 import ArkWhiteBox from '../ArkWhiteBox';
 import Image from 'next/image';
 import SkeletonDungeon from './SkeletonDungeon';
+import instance from '@/app/service/service';
 
 const Guardian = () => {
   const [Raids, setRaids] = useState<IRaids>();

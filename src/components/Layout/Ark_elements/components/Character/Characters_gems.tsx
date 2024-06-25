@@ -1,5 +1,4 @@
 'use client';
-import instance from '@/app/(myProject)/LostArk/service/service';
 import { ICharacterGems, IGem } from '@/types/Ark';
 import React, { useEffect, useState } from 'react';
 import ArkWhiteBox from '../../ArkWhiteBox';
@@ -8,6 +7,7 @@ import { colorGrade } from '@/lib/utils';
 import InfoBedge from './InfoBedge';
 import Characters_gemsCard from './Characters_gemsCard';
 import SkeletonGems from './SkeletonGems';
+import instance from '@/app/service/service';
 interface ICharactersGems {
   decodedId: string;
 }

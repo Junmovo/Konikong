@@ -11,14 +11,14 @@ import { useTheme } from 'next-themes';
 import { FaMoon } from 'react-icons/fa6';
 
 const HeaderMenu: IHeaderMenu[] = [
-  { label: '홈', link: '/LostArk' },
-  { label: '공지사항', link: '/LostArk/notice' },
+  { label: '홈', link: '/' },
+  { label: '공지사항', link: '/notice' },
 ];
 
 const HeaderList = () => {
   const { resolvedTheme, setTheme } = useTheme();
   const pathname = usePathname();
-  const mainPath = pathname === '/LostArk';
+  const mainPath = pathname === '/';
   const onClickMode = () => {
     if (resolvedTheme === 'light') {
       setTheme('dark');

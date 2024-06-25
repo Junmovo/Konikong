@@ -28,14 +28,14 @@ export default function SearchBar({ header, main }: ISearchBarProps) {
 
   const onClickSearchCharacter = () => {
     if (!SearchValue) return;
-    router.push(`/LostArk/character/${SearchValue}`);
+    router.push(`/character/${SearchValue}`);
     addSearchValue(`${SearchValue}`);
     setShowModal(false);
   };
   const handelKeydown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (!SearchValue) return;
     if (e.key === 'Enter') {
-      router.push(`/LostArk/character/${SearchValue}`);
+      router.push(`/character/${SearchValue}`);
       addSearchValue(`${SearchValue}`);
       setSearchValue('');
       inputRef.current?.blur();
@@ -70,7 +70,7 @@ export default function SearchBar({ header, main }: ISearchBarProps) {
   return (
     <div>
       <div className={cn('relative', header ? 'w-[350px]' : 'w-[480px]', main ? 'hidden' : 'block')}>
-        <form action={`/LostArk/character/${SearchValue}`}>
+        <form action={`/character/${SearchValue}`}>
           <input
             type="text"
             className={cn(
