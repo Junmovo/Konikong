@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: '코니콩 로아검색',
   description: '로스트아크 전적검색 사이트입니다.',
   icons: {
-    icon: '/images/Lostark/koni.png',
+    icon: '/favicon2.ico',
   },
   openGraph: {
     title: '코니콩 로아검색',
