@@ -5,23 +5,12 @@ import Image from 'next/image';
 import InfoBedge from './InfoBedge';
 import NoneContents from '../../commons/NoneContents';
 import instance from '@/app/service/service';
+import { useCharacterCollect } from '@/stores/useQueryLostarkStore';
 interface ICharacterEngravingsProps {
   decodedId: string;
 }
 const Characters_Engravings = ({ decodedId }: ICharacterEngravingsProps) => {
-  const [CharacterEngravings, setCharacterEngravings] = useState<ICharacterEngravings | undefined>();
-
-  useEffect(() => {
-    const getAPIData = async () => {
-      try {
-        const { data } = await instance.get(`/armories/characters/${decodedId}/engravings`);
-        setCharacterEngravings(data);
-      } catch (error) {
-        console.error('데이터를 받아오지 못했습니다.');
-      }
-    };
-    getAPIData();
-  }, [decodedId]);
+  const { Engrav: CharacterEngravings } = useCharacterCollect(decodedId);
 
   // 배열 선언
   const arr1 = CharacterEngravings?.Engravings ?? [];

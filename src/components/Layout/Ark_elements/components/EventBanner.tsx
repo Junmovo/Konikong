@@ -6,20 +6,10 @@ import { IEventInfo } from '@/types/Ark';
 import EventList from './EventList';
 import SkeletonEvent from './SkeletonEvent';
 import instance from '@/app/service/service';
+import { useEvnet } from '@/stores/useQueryLostarkStore';
 
 const EventBanner = () => {
-  const [EventInfo, setEventInfo] = useState<IEventInfo[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const getAPIData = async () => {
-    const { data } = await instance.get('/news/events');
-    setEventInfo(data);
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    getAPIData();
-  }, []);
+  const { data: EventInfo, isLoading } = useEvnet();
 
   return (
     <Carousel
@@ -39,7 +29,7 @@ const EventBanner = () => {
           ? new Array(5).fill(1).map((_, i) => {
               return <SkeletonEvent key={i} />;
             })
-          : EventInfo.map((List, idx) => <EventList List={List} key={idx} />)}
+          : EventInfo?.map((List, idx) => <EventList List={List} key={idx} />)}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />

@@ -6,28 +6,16 @@ import { cn } from '@/lib/utils';
 import InfoBedge from './InfoBedge';
 import { FaCheck } from 'react-icons/fa6';
 import instance from '@/app/service/service';
+import { useCharacterCollect } from '@/stores/useQueryLostarkStore';
 
 interface ICharacterCollectProps {
   decodedId: string;
 }
 
 const Character_Collect = ({ decodedId }: ICharacterCollectProps) => {
-  const [CharacterCollect, setCharacterCollect] = useState<ICharacterCollect[] | undefined>();
   const [SelectedTab, setSelectedTab] = useState<boolean>(true);
   const [SelectedValue, setSelectedValue] = useState<string>('모코코 씨앗');
-
-  useEffect(() => {
-    const getAPIData = async () => {
-      try {
-        const { data } = await instance.get(`/armories/characters/${decodedId}/collectibles`);
-        setCharacterCollect(data);
-      } catch (error) {
-        console.error('데이터를 받아오지 못했습니다.');
-      }
-    };
-    getAPIData();
-  }, [decodedId]);
-  console.log(CharacterCollect);
+  const { Collect: CharacterCollect } = useCharacterCollect(decodedId);
 
   const ImageVariants: Record<string, string> = {
     '모코코 씨앗': 'bg-[-234px_-94px]',

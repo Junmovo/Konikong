@@ -7,24 +7,14 @@ import Character_stats from './Character_stats';
 import NoneContents from '../../commons/NoneContents';
 import Character_tenden from './Character_tenden';
 import instance from '@/app/service/service';
+import { useCharacterCollect } from '@/stores/useQueryLostarkStore';
 interface ICharactersPower {
   decodedId: string;
 }
 const Characters_power = ({ decodedId }: ICharactersPower) => {
   const [selectedTab, setSelectedTab] = useState<boolean>(false);
-  const [CharacterPower, setCharacterPower] = useState<ICharterProfiles>();
+  const { Power: CharacterPower } = useCharacterCollect(decodedId);
 
-  useEffect(() => {
-    const getAPIData = async () => {
-      try {
-        const { data } = await instance.get(`/armories/characters/${decodedId}/profiles`);
-        setCharacterPower(data);
-      } catch (error) {
-        console.error('데이터를 받아오지 못했습니다.');
-      }
-    };
-    getAPIData();
-  }, [decodedId]);
   if (!CharacterPower?.Stats) return <NoneContents contents="아직 미생성된 캐릭터입니다." />;
   const index = CharacterPower?.Stats.slice(-2);
 

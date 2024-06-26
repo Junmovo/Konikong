@@ -23,9 +23,7 @@ export default function Layout({ children, params }: LayoutProps) {
   useEffect(() => {
     const getAPIData = async () => {
       try {
-        const { data } = await instance.get(
-          `https://developer-lostark.game.onstove.com/armories/characters/${params.Id}/profiles`
-        );
+        const { data } = await instance.get(`/armories/characters/${params.Id}/profiles`);
 
         setLoading(false);
         setCharacterInfo(data);

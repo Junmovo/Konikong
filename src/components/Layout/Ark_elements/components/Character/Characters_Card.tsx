@@ -5,25 +5,14 @@ import Image from 'next/image';
 import { ImgStar } from '@/lib/utils';
 import InfoBedge from './InfoBedge';
 import instance from '@/app/service/service';
+import { useCharacterCollect } from '@/stores/useQueryLostarkStore';
 
 interface ICharacterCardProps {
   decodedId: string;
 }
 
 const Characters_Card = ({ decodedId }: ICharacterCardProps) => {
-  const [CharacterCard, setCharacterCard] = useState<ICharacterCards>();
-
-  useEffect(() => {
-    const getAPIData = async () => {
-      try {
-        const { data } = await instance.get(`/armories/characters/${decodedId}/cards`);
-        setCharacterCard(data);
-      } catch (error) {
-        console.error('데이터를 받아오지 못했습니다.');
-      }
-    };
-    getAPIData();
-  }, [decodedId]);
+  const { Card: CharacterCard } = useCharacterCollect(decodedId);
 
   const getLastItem = (arr: any) => (arr.length > 0 ? arr[arr.length - 1] : undefined);
 

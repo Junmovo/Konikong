@@ -10,6 +10,7 @@ import Characters_power from './Characters_power';
 import Characters_Card from './Characters_Card';
 import Character_Collect from './Character_Collect';
 import instance from '@/app/service/service';
+import { useCharacterCollect } from '@/stores/useQueryLostarkStore';
 
 interface ICharactersMenu {
   children: React.ReactNode;
@@ -18,20 +19,7 @@ interface ICharactersMenu {
 
 const CharactersMenu = ({ children, decodedId }: ICharactersMenu) => {
   const [selectedTab, setSelectedTab] = useState('');
-  const [OtherCharacter, setOtherCharacter] = useState<ICharterInfo[] | undefined>();
-
-  useEffect(() => {
-    const getAPIData = async () => {
-      try {
-        const { data } = await instance.get(`/characters/${decodedId}/siblings`);
-
-        setOtherCharacter(data);
-      } catch (error) {
-        console.error('데이터를 받아오지 못했습니다.');
-      }
-    };
-    getAPIData();
-  }, [decodedId]);
+  const { Others: OtherCharacter } = useCharacterCollect(decodedId);
 
   const TabMenu = [
     { Title: '능력치', Load: '' },

@@ -6,23 +6,10 @@ import { Tooltip } from 'antd';
 import SkeletonEvent from './SkeletonEvent';
 import SkeletonDungeon from './SkeletonDungeon';
 import instance from '@/app/service/service';
+import { useDungeons } from '@/stores/useQueryLostarkStore';
 
 const Dungeons = () => {
-  const [Dungeons, setDungeons] = useState<IDungeons[]>();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const getAPIData = async () => {
-      try {
-        const { data } = await instance.get(`/gamecontents/challenge-abyss-dungeons`);
-        setDungeons(data);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('데이터를 받아오지 못했습니다.');
-      }
-    };
-    getAPIData();
-  }, []);
+  const { data: Dungeons, isLoading } = useDungeons();
 
   return (
     <div className="grid grid-cols-2 gap-4 max-h-[180px]">
@@ -44,13 +31,13 @@ const Dungeons = () => {
                     </div>
                     <div className="flex">
                       <div className="text-gray-400 text-[14px] ">
-                        {items.StartTime.split(' ')[0]} ~ {items.EndTime.split(' ')[0]}
+                        {items?.StartTime?.split(' ')[0]} ~ {items?.EndTime?.split(' ')[0]}
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-3 bg-gray-50 p-2 px-5 rounded-lg scrollbar-gutter-stable dark:bg-[#121212]">
-                  {items.RewardItems.map((el, i) => (
+                  {items.RewardItems?.map((el, i) => (
                     <div key={i}>
                       <Tooltip title={el.Name}>
                         <div className="relative w-[35px] h-[35px] rounded-sm hover:overflow-auto scrollbar scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-inherit">

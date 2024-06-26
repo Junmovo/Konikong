@@ -4,24 +4,11 @@ import ArkWhiteBox from '../ArkWhiteBox';
 import Image from 'next/image';
 import SkeletonDungeon from './SkeletonDungeon';
 import instance from '@/app/service/service';
+import { useGuardian } from '@/stores/useQueryLostarkStore';
 
 const Guardian = () => {
-  const [Raids, setRaids] = useState<IRaids>();
-  const [isLoading, setIsLoading] = useState(true);
+  const { data: Raids, isLoading } = useGuardian();
 
-  useEffect(() => {
-    const getAPIData = async () => {
-      try {
-        const { data } = await instance.get(`/gamecontents/challenge-guardian-raids`);
-
-        setRaids(data);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('데이터를 받아오지 못했습니다.');
-      }
-    };
-    getAPIData();
-  }, []);
   return (
     <div className="grid grid-cols-3 gap-3">
       {isLoading

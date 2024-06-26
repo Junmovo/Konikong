@@ -31,7 +31,7 @@ const OthersPage = ({ OtherCharacter, decodedId }: IOthersPage) => {
           <div className="grid grid-cols-3 gap-4 mb-4">
             {characters
               .sort((a, b) => Number(b.ItemAvgLevel.replace(/,/g, '')) - Number(a.ItemAvgLevel.replace(/,/g, '')))
-              .map((el, idx) => (
+              .map((el) => (
                 <Link href={`/character/${el.CharacterName}`} key={el.CharacterName}>
                   <div
                     className={cn(

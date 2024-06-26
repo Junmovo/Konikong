@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import StyledComponentsRegistry from '@/lib/registry';
-import styles from './page.module.css';
-import Header from '@/components/Layout/Header';
-import { NanumNeo, Tmoney, montserrat, pretendard } from '../../public/fonts/fonts';
-import ConditionalHeader from '@/components/Layout/HeaderConditional';
+import { montserrat, pretendard } from '../../public/fonts/fonts';
 import { ThemeProvider } from '../../provider/ThemeProvider';
 import ArkHeader from '@/components/Layout/Ark_elements/Header';
 import ArkWrapper from '@/components/Layout/Ark_elements/ArkWrapper';
+import ReactQueryProvider from '@/hooks/useQueryProvider';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://junmo-github-io.vercel.app/'),
@@ -39,12 +37,14 @@ export default function RootLayout({
     <html lang="kr" className={`${pretendard.variable} ${montserrat.className} `}>
       <StyledComponentsRegistry>
         <body className={pretendard.className} style={{ overflowX: 'hidden' }}>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-            <div className="font-pretendard">
-              <ArkHeader />
-              <ArkWrapper>{children}</ArkWrapper>
-            </div>
-          </ThemeProvider>
+          <ReactQueryProvider>
+            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+              <div className="font-pretendard">
+                <ArkHeader />
+                <ArkWrapper>{children}</ArkWrapper>
+              </div>
+            </ThemeProvider>
+          </ReactQueryProvider>
         </body>
       </StyledComponentsRegistry>
     </html>

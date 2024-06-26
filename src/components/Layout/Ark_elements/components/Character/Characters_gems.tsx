@@ -8,25 +8,14 @@ import InfoBedge from './InfoBedge';
 import Characters_gemsCard from './Characters_gemsCard';
 import SkeletonGems from './SkeletonGems';
 import instance from '@/app/service/service';
+import { useCharacterCollect } from '@/stores/useQueryLostarkStore';
 interface ICharactersGems {
   decodedId: string;
 }
 const Characters_gems = ({ decodedId }: ICharactersGems) => {
   const [selectedTab, setSelectedTab] = useState<boolean>(false);
-  const [CharacterGems, setCharacterGems] = useState<ICharacterGems>();
+  const { Gems: CharacterGems } = useCharacterCollect(decodedId);
 
-  useEffect(() => {
-    const getAPIData = async () => {
-      try {
-        const { data } = await instance.get(`/armories/characters/${decodedId}/gems`);
-
-        setCharacterGems(data);
-      } catch (error) {
-        console.error('데이터를 받아오지 못했습니다.');
-      }
-    };
-    getAPIData();
-  }, [decodedId]);
   const onClickMore = () => {
     setSelectedTab((prev) => !prev);
   };

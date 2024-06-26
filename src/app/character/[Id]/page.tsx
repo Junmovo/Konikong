@@ -9,27 +9,14 @@ import ItemSection3 from '@/components/Layout/Ark_elements/components/Character/
 import ItemSectionUnder from '@/components/Layout/Ark_elements/components/Character/ItemSectionUnder';
 import ArkWhiteBox from '@/components/Layout/Ark_elements/ArkWhiteBox';
 import SkeletonWeapon from '@/components/Layout/Ark_elements/components/Character/SkeletonWeapon';
+import { useCharacterWeapon } from '@/stores/useQueryLostarkStore';
 
 const CharacterPages = ({ params }: { params: ISearchParams }) => {
-  const [CharacterWeapon, setCharacterWeapon] = useState<ICharacterWeapon[]>();
-  const [isLoading, setIsLoading] = useState(true);
-
   const decodedId = decodeURIComponent(params.Id);
+  const { data: CharacterWeapon, isLoading, refetch } = useCharacterWeapon(decodedId);
 
-  useEffect(() => {
-    const getAPIData = async () => {
-      try {
-        const { data } = await instance.get(`/armories/characters/${decodedId}/equipment`);
-        setCharacterWeapon(data);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('데이터를 받아오지 못했습니다.');
-      }
-    };
-    getAPIData();
-  }, [params.Id, decodedId]);
-  if (!CharacterWeapon) {
-    return <SkeletonWeapon></SkeletonWeapon>;
+  if (isLoading || !CharacterWeapon) {
+    return <SkeletonWeapon />;
   }
   const newWeapon = [...CharacterWeapon];
   const WeaponValue = cunkArray(newWeapon, 6);
