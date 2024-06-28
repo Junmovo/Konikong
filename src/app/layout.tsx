@@ -37,12 +37,12 @@ export default function RootLayout({
   return (
     <html lang="kr" className={`${pretendard.variable} ${montserrat.className} `}>
       <StyledComponentsRegistry>
+        <Head>
+          <link rel="icon" href="/images/Lostark/koni.png" sizes="any" />
+        </Head>
         <body className={pretendard.className} style={{ overflowX: 'hidden' }}>
           <ReactQueryProvider>
             <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-              <Head>
-                <link rel="icon" href="/images/Lostark/koni.png" sizes="any" />
-              </Head>
               <div className="font-pretendard">
                 <ArkHeader />
                 <ArkWrapper>{children}</ArkWrapper>

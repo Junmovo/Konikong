@@ -5,10 +5,10 @@ import React from 'react';
 import ArkPadding from '../../ArkPadding';
 import InfoBox from './InfoTitle';
 import { CiStar } from 'react-icons/ci';
-import { FaStar } from 'react-icons/fa';
+import { FaShare, FaStar } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import InfoBox_ver2 from './InfoTitle_ver2';
-import { IoShareSocial } from 'react-icons/io5';
+import { IoShareSocial, IoShareSocialOutline } from 'react-icons/io5';
 import IconButton from '@/components/Layout/elements/IconButton';
 import { copyURL } from '@/components/Layout/LinkCopy';
 
@@ -48,14 +48,13 @@ const Characters_ver2: React.FC<IInfoProps> = ({ CharacterInfo, decodedId }) => 
               <span className="cursor-pointer" onClick={onClickAddFavorite(decodedId)}>
                 {isFavorite ? <FaStar color="#ffe425" size={24} /> : <CiStar color="#d1d5db" size={24} />}
               </span>
+              <span className="mt-3 inline-block cursor-pointer" onClick={copyURL}>
+                <IoShareSocialOutline size={22} color="#d1d5db" />
+              </span>
             </div>
           </div>
           {/* 내용 */}
           <div className="w-full relative p-[25px] ">
-            <div className="absolute right-[20px] cursor-pointer">
-              <IconButton icon={<IoShareSocial size={20} />} onClickIcon={copyURL} />
-            </div>
-
             <div className="">
               <div className="flex items-end">
                 <div className="font-bold  text-[30px]">{decodedId}</div>
