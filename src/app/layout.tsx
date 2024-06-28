@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://junmo-github-io.vercel.app/'),
   title: '코니콩 로아검색',
   description: '로스트아크 전적검색 사이트입니다.',
-  icons: {
-    icon: '/images/Lostark/koni.png',
-  },
+  // icons: {
+  //   icon: '/icon.ico',
+  // },
   openGraph: {
     title: '코니콩 로아검색',
     description: '로스트아크 전적검색 사이트입니다.',
