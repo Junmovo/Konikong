@@ -95,36 +95,62 @@ export const useCharacterInfo = (id: string) => {
 
 ## 작업화면
 
-| Main | Main(Dark) |
-| ---- | ---------- |
+### Main
 
-|![main](https://github.com/Junmovo/Konikong/assets/101781675/6286a726-bdcb-4267-a8c6-dab812a4c9bd)
-|![darkmain](https://github.com/Junmovo/Konikong/assets/101781675/19c99f23-ab4e-4ab9-a9db-66d9b11e3e8d)
-|
-|- 각종 이벤트 및 이번주 일정 정보제공<br>- 캐릭터 검색기능|- 다크모드 메인화면|
+#### Main 화면
 
-| 검색창 | 즐겨찾기, 최근검색어 |
-| ------ | -------------------- |
+![main](https://github.com/Junmovo/Konikong/assets/101781675/6286a726-bdcb-4267-a8c6-dab812a4c9bd)
 
-|![searchbar](https://github.com/Junmovo/Konikong/assets/101781675/333a2117-67a6-4987-a090-156097eb3be8)
-|![favorite](https://github.com/Junmovo/Konikong/assets/101781675/fac4ab7c-d3a2-40fe-b3e4-5f56d7d12c54)
-|
-|- 엔터키를 통하여 UX 향상<br>-검색했던 캐릭터 요약정보 제공|- 같은값을 검색했을 경우 최 상위로 옮겨짐 <br> - ★ 토글을 통하여 즐겨찾기 추가 해제 가능|
+- 각종 이벤트 및 이번주 일정 정보제공
+- 캐릭터 검색기능
 
-| 검색페이지 상세 | Detail |
-| --------------- | ------ |
+#### Main(Dark) 화면
 
-|![innerdetail](https://github.com/Junmovo/Konikong/assets/101781675/d5264b45-84d5-4b45-8728-fc0a87405c33)
+![darkmain](https://github.com/Junmovo/Konikong/assets/101781675/19c99f23-ab4e-4ab9-a9db-66d9b11e3e8d)
 
-|![detail](https://github.com/Junmovo/Konikong/assets/101781675/cfb56fa7-5128-49f2-afa5-56cd6b455cf9)
-|
-|- 캐릭터 관련 정보 제공 <br>- 간결하고 직관적인 UI|- 검색페이지 디테일|
+- 다크모드 메인화면
 
-| 상세페이지 검색 | 내 캐릭터 공유하기 |
-| --------------- | ------------------ |
+### 검색창 및 즐겨찾기
 
-|![search](https://github.com/Junmovo/Konikong/assets/101781675/26495467-d44a-4f52-88a8-b323c8347691)
+#### 검색창
 
-|![share](https://github.com/Junmovo/Konikong/assets/101781675/93e7e485-8f5c-41d8-a1c6-8b6237de446c)
-|
-|- 상세페이지 내 검색 및 정보제공 |- 캐릭터 URL로 공유하기|
+![searchbar](https://github.com/Junmovo/Konikong/assets/101781675/333a2117-67a6-4987-a090-156097eb3be8)
+
+- 엔터키를 통하여 UX 향상
+- 검색했던 캐릭터 요약정보 제공
+
+#### 즐겨찾기, 최근검색어
+
+![favorite](https://github.com/Junmovo/Konikong/assets/101781675/fac4ab7c-d3a2-40fe-b3e4-5f56d7d12c54)
+
+- 같은 값을 검색했을 경우 최상위로 옮겨짐
+- ★ 토글을 통하여 즐겨찾기 추가 해제 가능
+
+### 검색페이지 상세 및 Detail
+
+#### 검색페이지 상세
+
+![innerdetail](https://github.com/Junmovo/Konikong/assets/101781675/d5264b45-84d5-4b45-8728-fc0a87405c33)
+
+- 캐릭터 관련 정보 제공
+- 간결하고 직관적인 UI
+
+#### Detail 페이지
+
+![detail](https://github.com/Junmovo/Konikong/assets/101781675/cfb56fa7-5128-49f2-afa5-56cd6b455cf9)
+
+- 검색페이지 디테일
+
+### 상세페이지 검색 및 내 캐릭터 공유하기
+
+#### 상세페이지 검색
+
+![search](https://github.com/Junmovo/Konikong/assets/101781675/26495467-d44a-4f52-88a8-b323c8347691)
+
+- 상세페이지 내 검색 및 정보제공
+
+#### 내 캐릭터 공유하기
+
+![share](https://github.com/Junmovo/Konikong/assets/101781675/93e7e485-8f5c-41d8-a1c6-8b6237de446c)
+
+- 캐릭터 URL로 공유하기
