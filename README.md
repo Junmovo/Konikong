@@ -1,5 +1,7 @@
 # 로스트아크 전적검색 코니콩
 
+![KoniImage](https://github.com/Junmovo/Konikong/assets/101781675/2f1c8715-7cb4-4674-95f7-864f2de25ce3)
+
 - RPG게임 로스트아크 오픈API를 활용하여 캐릭터 정보를 검색할 수 있습니다.
   <br/>
 - **`작업 기간 :`** 24.06.04 - 24.07.04 ( 1개월 )
@@ -42,7 +44,7 @@ Zustand와 React-Query를 활용한 전역변수 사용법 및 Axios 등 다양�
   <br/>
   <br/>
 
-## 트러블슈팅
+## 트러블 슈팅
 
 💥 **문제 발생**  
 useEffect()를 활용하여 데이터 요청 시 페이지가 리렌더링 될 때마다 반복적인 데이터 요청이 들어간다는 것을 확인하였습니다. ( 잦은 에러코드 발생 - Rate Limit Exceeded Code 429 )  
@@ -92,6 +94,10 @@ export const useCharacterInfo = (id: string) => {
   });
 };
 ```
+
+## 추가 기능(예정)
+
+- [ ] 반응형 모바일 추가하기
 
 ## 작업화면
 
