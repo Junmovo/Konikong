@@ -46,6 +46,12 @@ const fetchEvnet = async (): Promise<IEventInfo[]> => {
   const { data } = await instance.get(`/news/events`);
   return data;
 };
+
+const fetchProfiles = async (id: string): Promise<ICharterProfiles> => {
+  const { data } = await instance.get(`/armories/characters/${id}/profiles`);
+  return data;
+};
+
 const fetchDungeons = async (): Promise<IDungeons[]> => {
   const { data } = await instance.get(`/gamecontents/challenge-abyss-dungeons`);
   return data;
@@ -56,15 +62,21 @@ const fetchGuardian = async (): Promise<IRaids> => {
   return data;
 };
 
-const fetchNotice = async (): Promise<INoticeInfo[]> => {
-  const { data } = await instance.get(`/news/notices`);
-  return data;
-};
-
 export const useCharacterWeapon = (id: string) => {
   return useQuery<ICharacterWeapon[], Error>({
     queryKey: ['CharacterWeapon', id],
     queryFn: () => fetchCharacterWeapon(id),
+    staleTime: 5 * 60 * 1000,
+    gcTime: 10 * 60 * 1000,
+    retry: 1,
+    refetchOnWindowFocus: false,
+  });
+};
+
+export const useCharacterInfo = (id: string) => {
+  return useQuery<ICharterProfiles, Error>({
+    queryKey: ['CharacterPowerInfo', id],
+    queryFn: () => fetchCharacterPower(id),
     staleTime: 5 * 60 * 1000,
     gcTime: 10 * 60 * 1000,
     retry: 1,

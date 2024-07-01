@@ -1,15 +1,13 @@
 import useLostArkSearchStore from '@/stores/useLostArkSearchStore';
-import { ICharacterWeapon, ICharterInfo, ICharterProfiles, IInfoProps } from '@/types/Ark';
+import { IInfoProps } from '@/types/Ark';
 import Image from 'next/image';
 import React from 'react';
-import ArkPadding from '../../ArkPadding';
 import InfoBox from './InfoTitle';
 import { CiStar } from 'react-icons/ci';
 import { FaShare, FaStar } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import InfoBox_ver2 from './InfoTitle_ver2';
 import { IoShareSocial, IoShareSocialOutline } from 'react-icons/io5';
-import IconButton from '@/components/Layout/elements/IconButton';
 import { copyURL } from '@/components/Layout/LinkCopy';
 
 const Characters_ver2: React.FC<IInfoProps> = ({ CharacterInfo, decodedId }) => {
