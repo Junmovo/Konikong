@@ -1,13 +1,12 @@
 'use client';
-import React, { useEffect } from 'react';
+import React from 'react';
 import ArkPadding from '@/components/Layout/Ark_elements/ArkPadding';
-import { ICharacterWeapon, ICharterProfiles, ISearchParams } from '@/types/Ark';
+import { ISearchParams } from '@/types/Ark';
 import { useState } from 'react';
 import CharactersMenu from '@/components/Layout/Ark_elements/components/Character/CharactersMenu';
 import NoneContents from '@/components/Layout/Ark_elements/commons/NoneContents';
 import LostarkSerachLoading from '../loading';
 import { Toaster } from '@/components/ui/sonner';
-import instance from '@/app/service/service';
 import CharacterPage from '@/components/Layout/Ark_elements/components/Character/Charcterpage';
 import { useCharacterInfo } from '@/stores/useQueryLostarkStore';
 
