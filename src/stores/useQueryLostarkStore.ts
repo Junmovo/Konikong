@@ -104,6 +104,17 @@ export const useGuardian = () => {
   });
 };
 
+export const useCharacterInfo = (id: string) => {
+  return useQuery<ICharterProfiles, Error>({
+    queryKey: ['CharacterPowerInfo', id],
+    queryFn: () => fetchCharacterPower(id),
+    staleTime: 5 * 60 * 1000,
+    gcTime: 10 * 60 * 1000,
+    retry: 1,
+    refetchOnWindowFocus: false,
+  });
+};
+
 export const useCharacterCollect = (id: string) => {
   const { data: Collect } = useQuery<ICharacterCollect[], Error>({
     queryKey: ['CharacterCollect', id],

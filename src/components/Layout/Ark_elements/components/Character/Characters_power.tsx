@@ -15,7 +15,7 @@ const Characters_power = ({ decodedId }: ICharactersPower) => {
   const [selectedTab, setSelectedTab] = useState<boolean>(false);
   const { Power: CharacterPower } = useCharacterCollect(decodedId);
 
-  if (!CharacterPower?.Stats) return <NoneContents contents="아직 미생성된 캐릭터입니다." />;
+  if (!CharacterPower?.Stats) return null;
   const index = CharacterPower?.Stats.slice(-2);
 
   return (

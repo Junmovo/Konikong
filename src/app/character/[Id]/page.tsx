@@ -10,13 +10,17 @@ import ItemSectionUnder from '@/components/Layout/Ark_elements/components/Charac
 import ArkWhiteBox from '@/components/Layout/Ark_elements/ArkWhiteBox';
 import SkeletonWeapon from '@/components/Layout/Ark_elements/components/Character/SkeletonWeapon';
 import { useCharacterWeapon } from '@/stores/useQueryLostarkStore';
+import NoneContents from '@/components/Layout/Ark_elements/commons/NoneContents';
 
 const CharacterPages = ({ params }: { params: ISearchParams }) => {
   const decodedId = decodeURIComponent(params.Id);
   const { data: CharacterWeapon, isLoading, refetch } = useCharacterWeapon(decodedId);
 
-  if (isLoading || !CharacterWeapon) {
+  if (isLoading) {
     return <SkeletonWeapon />;
+  }
+  if (!CharacterWeapon) {
+    return <NoneContents contents="장기 미사용 캐릭터입니다." />;
   }
   const newWeapon = [...CharacterWeapon];
   const WeaponValue = cunkArray(newWeapon, 6);
