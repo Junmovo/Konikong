@@ -39,7 +39,7 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
   let Elericser_Effect2: string | undefined;
   let choLeveling: string | undefined;
   for (let i = 0; i < indentstring.length; i++) {
-    if (indentstring[i]?.value?.Element_000.topStr.includes('엘릭서 효과')) {
+    if (indentstring[i]?.value?.Element_000.topStr.includes('엘릭서')) {
       Elericser_Effect1 = indentstring[i].value.Element_000.contentStr.Element_000?.contentStr;
       Elericser_Effect2 = indentstring[i].value.Element_000.contentStr.Element_001?.contentStr;
       break;
@@ -57,19 +57,24 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
   let choLevel: string | undefined;
   let esther: string | undefined;
   let elementValue: string | undefined;
+  console.log(SetLevel[2]);
   if (SetLevel[2]?.value?.Element_001) {
-    elementValue = SetLevel[2].value.Element_001.replace(/<[^>]*>/g, '').split(' ')[1];
+    if (SetLevel[2]?.value?.Element_000.includes('아크')) {
+      elementValue = SetLevel[2].value.Element_001.replace(/<[^>]*>/g, '');
+    } else {
+      elementValue = SetLevel[2].value.Element_001.replace(/<[^>]*>/g, '').split(' ')[1];
+    }
   }
   if (indentstring.length > 1) {
-    const Level = indentstring[0].value.Element_000;
-    const Share = indentstring[1].value.Element_000;
+    const Level = indentstring[0].value?.Element_000;
+    const Share = indentstring[1].value?.Element_000;
     //장비초월 한사람들
-    choLevel = Level.topStr
+    choLevel = Level?.topStr
       .replace(/<\/?FONT[^>]*>/gi, '')
       .replace(/<img[^>]*>/gi, '')
       .replace(/<\/img[^>]*>/gi, '')
       .split(' ');
-    esther = Share.topStr
+    esther = Share?.topStr
       .replace(/<\/?FONT[^>]*>/gi, '')
       .replace(/<img[^>]*>/gi, '')
       .replace(/<\/img[^>]*>/gi, '')
@@ -105,8 +110,8 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
                 </>
               ) : (
                 <>
-                  <span className="text-[12px] font-semibold mx-1">{choLevel?.[2]}</span>
-                  <span className="text-[12px] ">{choLevel?.[1]}</span>
+                  <span className="text-[12px] font-semibold mx-1">{choLevel?.[3]}</span>
+                  <span className="text-[12px] ">{choLevel?.[2]}</span>
                 </>
               )}
             </>

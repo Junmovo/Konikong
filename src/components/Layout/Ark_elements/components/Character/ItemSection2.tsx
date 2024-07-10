@@ -34,6 +34,7 @@ const ItemSection2: React.FC<IItemsSectionProps> = ({ items }) => {
   const addEffect0 = removeFontTags(Element_000.contentStr);
   const addEffect1 = removeFontTags(Element_001?.contentStr || '');
   const addEffect2 = removeFontTags(Element_002?.contentStr || '');
+  const NewTag = removeFontTags(addEffect);
 
   return (
     <div className="flex gap-3 mb-2 p-[10px]">
