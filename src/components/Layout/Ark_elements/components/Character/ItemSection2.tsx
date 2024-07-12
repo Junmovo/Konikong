@@ -20,21 +20,31 @@ const ItemSection2: React.FC<IItemsSectionProps> = ({ items }) => {
     .map((key) => Tooltip[key]);
 
   const quality = Tooltip.Element_001.value.qualityValue;
+  if (!SetStone[0].value) return;
+  const addEffect = Tooltip.Element_005.value?.Element_001;
+  let displayText = '';
 
-  if (!SetStone[0]) return;
-  const addEffect = Tooltip.Element_005.value.Element_001;
-  const { Element_000, Element_001, Element_002 } = SetStone[0].value.Element_000.contentStr;
+  if (typeof addEffect === 'string') {
+    if (addEffect.split('<BR>')[1] === undefined) {
+      displayText = addEffect.split('<BR>')[0].replace(/<[^>]*>/g, '');
+    } else {
+      displayText =
+        addEffect.split('<BR>')[0].replace(/<[^>]*>/g, '') + ' ' + addEffect.split('<BR>')[1].replace(/<[^>]*>/g, '');
+    }
+  } else {
+    displayText = '';
+  }
+  const { Element_000, Element_001, Element_002 } = SetStone[0].value?.Element_000.contentStr;
   const removeFontTags = (html: string) => {
     return html
-      .replace(/<\/?FONT[^>]*>/gi, '')
+      ?.replace(/<\/?FONT[^>]*>/gi, '')
       .replace('<BR>', '')
       .replace(/\[(.*?)\]/g, (match, text) => text)
       .split('활성도');
   };
-  const addEffect0 = removeFontTags(Element_000.contentStr);
+  const addEffect0 = removeFontTags(Element_000?.contentStr || '');
   const addEffect1 = removeFontTags(Element_001?.contentStr || '');
   const addEffect2 = removeFontTags(Element_002?.contentStr || '');
-  const NewTag = removeFontTags(addEffect);
 
   return (
     <div className="flex gap-3 mb-2 p-[10px]">
@@ -50,8 +60,7 @@ const ItemSection2: React.FC<IItemsSectionProps> = ({ items }) => {
         <div className="font-semibold">{items.Name}</div>
         {addEffect ? (
           <div className="text-[14px] mb-[4px]">
-            <span className="mr-[5px]">{addEffect.split('<BR>')[0] ?? ''}</span>
-            <span className="mr-[5px]">{addEffect.split('<BR>')[1] ?? ''}</span>
+            <span className="mr-[5px]">{displayText}</span>
           </div>
         ) : (
           ''

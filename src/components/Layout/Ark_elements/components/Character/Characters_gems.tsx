@@ -22,7 +22,9 @@ const Characters_gems = ({ decodedId }: ICharactersGems) => {
   CharacterGems?.Gems.sort((a, b) => {
     const getOrder = (name: string) => {
       if (name.includes('멸화')) return 1;
+      if (name.includes('겁화')) return 1;
       if (name.includes('홍염')) return 2;
+      if (name.includes('작열')) return 2;
       return 3;
     };
 
@@ -38,7 +40,7 @@ const Characters_gems = ({ decodedId }: ICharactersGems) => {
   let mul: IGem[] = [];
   let hong: IGem[] = [];
   CharacterGems?.Gems.map((el) => {
-    if (el.Name.includes('멸화')) {
+    if (el.Name.includes('멸화') || el.Name.includes('겁화')) {
       return mul.push(el);
     } else {
       return hong.push(el);

@@ -2,7 +2,6 @@ import { cn, colorGrade } from '@/lib/utils';
 import { ICharacterGems, IEffect, IGem } from '@/types/Ark';
 import React from 'react';
 import Image from 'next/image';
-import SkeletonGems from './SkeletonGems';
 
 interface IGemsCard {
   items: IGem;
@@ -19,7 +18,32 @@ const Characters_gemsCard: React.FC<IGemsCard> = ({ items, moreView }) => {
   let input = Effect[0]?.value.Element_001;
   const part1 = input.match(/\[([^\]]+)\]/)?.[1];
   const part2 = input.match(/<FONT COLOR='#FFD200'>([^<]+)<\/FONT>/)?.[1];
-  const part3 = input.split('</FONT>')[1]?.trim();
+  const keyword = '피해';
+  const keyword2 = '재사용';
+  const part_m = input.indexOf(keyword);
+  const part_h = input.indexOf(keyword2);
+  let part4;
+  let part5;
+  let part6;
+  if (part_m === -1) {
+    //홍염
+    const part = input
+      .substring(part_h)
+      .split('<BR>')
+      .filter((el: string) => el.trim() !== '');
+    part4 = part[0];
+    part5 = part[1]?.replace(/<[^>]*>/g, '');
+    part6 = part[2];
+  } else {
+    //멸화
+    const part = input
+      .substring(part_m)
+      .split('<BR>')
+      .filter((el: string) => el.trim() !== '');
+    part4 = part[0];
+    part5 = part[1]?.replace(/<[^>]*>/g, '');
+    part6 = part[2];
+  }
 
   return (
     <div className={cn('flex flex-wrap gap-4 items-center', moreView ? ' mb-[10px] ' : 'justify-center')}>
@@ -39,12 +63,17 @@ const Characters_gemsCard: React.FC<IGemsCard> = ({ items, moreView }) => {
           <div className="flex w-[50px] items-center">
             <span className="text-[12px]">Lv.</span>
             <span className="font-semibold text-[14px]">
-              {items.Level} {items.Name.includes('멸화') ? '멸' : '홍'}
+              {items.Level} {items.Name.includes('멸화') || items.Name.includes('겁화') ? '멸' : '홍'}
             </span>
           </div>
           <div className="text-[14px] text-gray-400 ">{part1}</div>
           <div className="font-semibold w-[200px]">{part2}</div>
-          <div className=" text-gray-600 dark:text-gray-400">{part3}</div>
+          <div className=" text-gray-600 dark:text-gray-400">
+            {part4}
+            <div className="text-[12px] text-gray-400">
+              <span>{part6}</span>
+            </div>
+          </div>
         </div>
       ) : null}
     </div>

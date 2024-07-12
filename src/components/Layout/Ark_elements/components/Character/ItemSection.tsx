@@ -57,7 +57,6 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
   let choLevel: string | undefined;
   let esther: string | undefined;
   let elementValue: string | undefined;
-  console.log(SetLevel[2]);
   if (SetLevel[2]?.value?.Element_001) {
     if (SetLevel[2]?.value?.Element_000.includes('아크')) {
       elementValue = SetLevel[2].value.Element_001.replace(/<[^>]*>/g, '');
@@ -105,8 +104,8 @@ const ItemSection: React.FC<IItemsSectionProps> = ({ items }) => {
               </div>
               {items.Grade === '에스더' ? (
                 <>
-                  <span className="text-[12px] font-semibold mx-1">{esther?.[2]}</span>
-                  <span className="text-[12px]">{esther?.[1]}</span>
+                  <span className="text-[12px] font-semibold mx-1">{esther?.[3]}</span>
+                  <span className="text-[12px]">{esther?.[2]}</span>
                 </>
               ) : (
                 <>

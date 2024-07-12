@@ -36,9 +36,9 @@ const ItemSectionUnder: React.FC<IItemsSectionProps> = ({ items }) => {
   let elericser: string | undefined;
 
   for (let i = 0; i < indentstring.length; i++) {
-    if (indentstring[i].value.Element_000?.topStr.includes('[초월]')) {
+    if (indentstring[i].value?.Element_000?.topStr.includes('[초월]')) {
       indentKeyword = indentstring[i].value.Element_000.contentStr.Element_001.contentStr;
-    } else if (indentstring[i].value.Element_000?.topStr.includes('연성 추가 효과')) {
+    } else if (indentstring[i].value?.Element_000?.topStr.includes('연성 추가 효과')) {
       elericser = indentstring[i].value.Element_000.topStr;
     }
   }
