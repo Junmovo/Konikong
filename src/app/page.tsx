@@ -1,4 +1,3 @@
-'use client';
 import ArkPadding from '@/components/Layout/Ark_elements/ArkPadding';
 import TopBanner from '@/components/Layout/Ark_elements/components/TopBanner';
 import EventBanner from '@/components/Layout/Ark_elements/components/EventBanner';

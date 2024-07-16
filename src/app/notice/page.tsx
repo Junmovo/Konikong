@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { INoticeInfo } from '@/types/Ark';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -7,7 +7,6 @@ import NoticeList from '@/components/Layout/Ark_elements/components/NoticeList';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoIosArrowBack } from 'react-icons/io';
 import ArkPadding from '@/components/Layout/Ark_elements/ArkPadding';
-import ArkWhiteBox from '@/components/Layout/Ark_elements/ArkWhiteBox';
 import SkeletonNotice from '@/components/Layout/Ark_elements/components/SkeletonNotice';
 import instance from '../service/service';
 
@@ -16,11 +15,15 @@ export default function LostArkNotice() {
   const [FilteredNoticeInfo, setFilteredNoticeInfo] = useState<INoticeInfo[]>([]);
   const [Page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState(true);
+  const ItemPerPage = 10;
 
-  const [NowActive, setNowActive] = useState<string>('전체');
-  const Pagination = Math.floor(FilteredNoticeInfo.length / 10 + 1);
-  const LastPage = Page * 10;
-  const FisrtPage = LastPage - 10;
+  const [NowActive, setNowActive] = useState<string | null>('전체');
+  const FilterPageMemo = useMemo(() => {
+    const Pagination = Math.floor(FilteredNoticeInfo.length / 10 + 1);
+    return Pagination;
+  }, [FilteredNoticeInfo.length]);
+  const LastPage = Page * ItemPerPage;
+  const FisrtPage = LastPage - ItemPerPage;
   const SliceNotice = FilteredNoticeInfo.slice(FisrtPage, LastPage);
   const filterList = ['전체', '공지', '이벤트', '점검', '상점'];
 
@@ -41,7 +44,7 @@ export default function LostArkNotice() {
     setFilteredNoticeInfo(result[filter]);
   };
   const nextPage = () => {
-    if (Pagination === Page) return;
+    if (FilterPageMemo === Page) return;
     setPage(Page + 1);
   };
   const prevPage = () => {
@@ -107,7 +110,7 @@ export default function LostArkNotice() {
             >
               <IoIosArrowBack />
             </li>
-            {new Array(Pagination).fill(1).map((_, idx) => (
+            {new Array(FilterPageMemo).fill(1).map((_, idx) => (
               <li
                 key={idx}
                 className={cn(

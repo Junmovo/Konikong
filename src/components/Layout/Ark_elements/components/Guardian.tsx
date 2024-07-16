@@ -1,3 +1,5 @@
+'use client';
+
 import { IRaids } from '@/types/Ark';
 import React, { useEffect, useState } from 'react';
 import ArkWhiteBox from '../ArkWhiteBox';
