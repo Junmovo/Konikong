@@ -7,7 +7,6 @@ import { colorGrade } from '@/lib/utils';
 import InfoBedge from './InfoBedge';
 import Characters_gemsCard from './Characters_gemsCard';
 import SkeletonGems from './SkeletonGems';
-import instance from '@/app/service/service';
 import { useCharacterCollect } from '@/stores/useQueryLostarkStore';
 interface ICharactersGems {
   decodedId: string;
@@ -19,7 +18,7 @@ const Characters_gems = ({ decodedId }: ICharactersGems) => {
   const onClickMore = () => {
     setSelectedTab((prev) => !prev);
   };
-  CharacterGems?.Gems.sort((a, b) => {
+  CharacterGems?.Gems?.sort((a, b) => {
     const getOrder = (name: string) => {
       if (name.includes('멸화')) return 1;
       if (name.includes('겁화')) return 1;
@@ -39,7 +38,7 @@ const Characters_gems = ({ decodedId }: ICharactersGems) => {
 
   let mul: IGem[] = [];
   let hong: IGem[] = [];
-  CharacterGems?.Gems.map((el) => {
+  CharacterGems?.Gems?.map((el) => {
     if (el.Name.includes('멸화') || el.Name.includes('겁화')) {
       return mul.push(el);
     } else {
@@ -64,7 +63,7 @@ const Characters_gems = ({ decodedId }: ICharactersGems) => {
           {CharacterGems && selectedTab ? '닫기' : '더보기'}
         </span>
       </div>
-      {CharacterGems?.Gems === undefined ? (
+      {CharacterGems?.Gems === undefined || null ? (
         <div className="flex justify-between">
           {Array.from({ length: 11 }, (_, idx) => (
             <SkeletonGems key={idx} />
