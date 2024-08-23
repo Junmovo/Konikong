@@ -6,12 +6,12 @@ import LoSearch from './LoSearch';
 
 const LostArkLogo = () => {
   return (
-    <div>
+    <h1>
       <Link href={'/'} className="flex w-[175px] items-center gap-2">
         <KoniLogo width={50} height={62} />
         <LoSearch width={160} height={62} />
       </Link>
-    </div>
+    </h1>
   );
 };
 

@@ -6,7 +6,7 @@ import Guardian from '@/components/Layout/Ark_elements/components/Guardian';
 
 export default function LostArk() {
   return (
-    <div className="w-full">
+    <main className="w-full">
       <TopBanner />
       <ArkPadding>
         <div className="flex flex-col h-full w-full">
@@ -27,6 +27,6 @@ export default function LostArk() {
           </section>
         </div>
       </ArkPadding>
-    </div>
+    </main>
   );
 }

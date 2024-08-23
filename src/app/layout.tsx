@@ -6,7 +6,6 @@ import { ThemeProvider } from '../../provider/ThemeProvider';
 import ArkHeader from '@/components/Layout/Ark_elements/Header';
 import ArkWrapper from '@/components/Layout/Ark_elements/ArkWrapper';
 import ReactQueryProvider from '@/hooks/useQueryProvider';
-import Head from 'next/head';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://junmo-github-io.vercel.app/'),
